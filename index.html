@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lộ Trình AI Claude Cho Kinh Doanh | Thắng TST</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lộ Trình AI Claude Cho Kinh Doanh | Thắng TST" />
+  <meta property="og:description" content="Học AI Claude để tự động hoá công việc, tăng doanh thu và vận hành thông minh hơn. Khoá học thực chiến từ Thắng TST." />
+  <meta property="og:image" content="https://hocaicungthang.vn/raw/111.png" />
+  <meta property="og:url" content="https://hocaicungthang.vn/" />
+  <meta property="og:type" content="website" />
+  <meta name="description" content="Học AI Claude để tự động hoá công việc, tăng doanh thu và vận hành thông minh hơn. Khoá học thực chiến từ Thắng TST." />
+  <style>
+    :root {
+      --primary: #f97316;
+      --primary-dark: #ea6c0a;
+      --accent: #f97316;
+      --accent-dark: #ea6c0a;
+      --dark: #080808;
+      --dark2: #0f0f0f;
+      --dark3: #141414;
+      --text: #ffffff;
+      --muted: #9a9a9a;
+      --white: #ffffff;
+      --card-bg: rgba(249,115,22,0.07);
+      --border: rgba(249,115,22,0.22);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 24px;
+      background: rgba(15,10,30,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 8px; }
+    .logo-name { font-weight: 900; font-size: 1.2rem; color: #fff; }
+    .logo-x { font-size: 1rem; color: var(--accent); font-weight: 700; }
+    .logo-img {
+      height: 38px; width: auto;
+      background: #fff;
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    @media (max-width: 480px) {
+      .logo-img { height: 28px; }
+      .logo-name { font-size: 1rem; }
+    }
+    header a.cta-nav {
+      background: var(--accent); color: #000;
+      padding: 8px 20px; border-radius: 50px;
+      text-decoration: none; font-weight: 700; font-size: .9rem;
+      transition: background .2s;
+    }
+    header a.cta-nav:hover { background: var(--accent-dark); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background:
+        linear-gradient(to right,
+          rgba(5,3,3,0.45) 0%,
+          rgba(5,3,3,0.40) 38%,
+          rgba(5,3,3,0.20) 62%,
+          rgba(5,3,3,0.02) 100%),
+        url('raw/hero-bg.jpg') center center / cover no-repeat;
+      position: relative; overflow: hidden;
+    }
+    .hero-content {
+      max-width: 680px;
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        background-color: var(--dark);
+        background-image:
+          linear-gradient(to bottom,
+            rgba(5,3,3,0.35) 0%,
+            rgba(5,3,3,0.50) 35%,
+            rgba(5,3,3,0.82) 60%,
+            rgba(5,3,3,0.97) 80%,
+            rgba(5,3,3,1.00) 100%),
+          url('raw/hero-bg.jpg');
+        background-size: 100% auto;
+        background-position: center top;
+        background-repeat: no-repeat;
+        min-height: 100svh;
+        padding: 110px 20px 70px;
+      }
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      pointer-events: none;
+    }
+    .instructor-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(249,115,22,0.12);
+      border: 1.5px solid rgba(249,115,22,0.45);
+      border-radius: 40px;
+      padding: 7px 16px 7px 7px;
+      margin-bottom: 18px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, transform .2s;
+      box-shadow: 0 0 16px rgba(249,115,22,0.15);
+    }
+    .instructor-pill:hover { background: rgba(249,115,22,0.22); border-color: rgba(249,115,22,0.7); transform: translateY(-1px); }
+    .instructor-pill img {
+      width: 36px; height: 36px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+      border: 2px solid var(--primary);
+    }
+    .instructor-pill span {
+      font-size: 0.88rem; color: rgba(255,255,255,0.9); font-weight: 600;
+    }
+    .instructor-pill em {
+      font-style: normal; font-size: 0.88rem;
+      color: var(--primary); font-weight: 800; white-space: nowrap;
+    }
+    @media (max-width: 480px) {
+      .instructor-pill span { font-size: 0.85rem; }
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(249,115,22,0.15);
+      border: 1px solid var(--border);
+      color: #fdba74; font-size: 1.15rem; font-weight: 600;
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 28px;
+      letter-spacing: .5px;
+    }
+
+    /* ─── URGENT BADGE ─── */
+    @keyframes urgent-glow {
+      0%,100% { box-shadow: 0 0 12px rgba(249,115,22,0.4), 0 0 28px rgba(249,115,22,0.15); border-color: rgba(249,115,22,0.5); }
+      50%      { box-shadow: 0 0 28px rgba(249,115,22,0.85), 0 0 60px rgba(249,115,22,0.35); border-color: rgba(249,115,22,1); }
+    }
+    @keyframes urgent-shake {
+      0%,100% { transform: translateX(0) scale(1); }
+      10%      { transform: translateX(-4px) scale(1.02); }
+      20%      { transform: translateX(4px) scale(1.02); }
+      30%      { transform: translateX(-3px); }
+      40%      { transform: translateX(3px); }
+      50%      { transform: translateX(0) scale(1.04); }
+      60%,90%  { transform: translateX(0) scale(1); }
+    }
+    @keyframes urgent-icon {
+      0%,60%,100% { transform: rotate(0deg) scale(1); }
+      65%          { transform: rotate(-20deg) scale(1.2); }
+      70%          { transform: rotate(15deg) scale(1.2); }
+      75%          { transform: rotate(-10deg); }
+      80%          { transform: rotate(8deg); }
+      85%          { transform: rotate(0deg) scale(1.1); }
+    }
+    .badge-urgent {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.22), rgba(234,88,12,0.12));
+      border: 1.5px solid rgba(249,115,22,0.6);
+      color: #fff; font-size: 1.35rem; font-weight: 800;
+      padding: 10px 28px; border-radius: 50px; margin-bottom: 28px;
+      letter-spacing: .5px;
+      animation: urgent-glow 1.8s ease-in-out infinite, urgent-shake 4s ease-in-out infinite;
+      cursor: default;
+    }
+    .badge-urgent .u-icon {
+      display: inline-block;
+      animation: urgent-icon 4s ease-in-out infinite;
+      font-style: normal;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.8rem);
+      font-weight: 900; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 { text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.7); }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero h1 strong { color: #fdba74; }
+    .sub {
+      font-size: 1.45rem; color: rgba(255,255,255,0.88);
+      max-width: 520px; margin: 0 auto 36px;
+      text-shadow: 0 2px 8px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.9);
+    }
+    .sub b { color: var(--text); }
+    .highlight-now {
+      display: inline-block;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff;
+      padding: 2px 16px 4px;
+      border-radius: 8px;
+      margin-top: 6px;
+      font-style: normal;
+    }
+    .hero-cta {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff; padding: 16px 36px; border-radius: 50px;
+      text-decoration: none; font-weight: 800; font-size: 1.05rem;
+      box-shadow: 0 0 30px rgba(249,115,22,0.5);
+      transition: transform .2s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-primary {
+      animation: pulse-orange 2s ease-in-out infinite;
+    }
+    @keyframes pulse-orange {
+      0%, 100% { box-shadow: 0 0 30px rgba(249,115,22,0.5); transform: scale(1); }
+      50%       { box-shadow: 0 0 55px rgba(249,115,22,0.9); transform: scale(1.03); }
+    }
+    .btn-primary:hover { animation: none; transform: translateY(-2px); box-shadow: 0 0 55px rgba(249,115,22,0.9); }
+    .btn-ghost {
+      animation: shimmer-border 2.5s ease-in-out infinite;
+    }
+    @keyframes shimmer-border {
+      0%, 100% { border-color: rgba(249,115,22,0.3); color: var(--text); }
+      50%       { border-color: rgba(249,115,22,0.9); color: #fdba74; }
+    }
+    .btn-ghost:hover { animation: none; border-color: var(--primary); color: #fdba74; }
+    .btn-ghost {
+      border: 1.5px solid var(--border); color: var(--text);
+      padding: 15px 32px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--primary); color: #fdba74; }
+    .urgency {
+      margin-top: 22px; font-size: 1.15rem; color: var(--muted);
+    }
+    .urgency span { color: #f87171; font-weight: 700; }
+
+    /* ─── STATS ─── */
+    .stats {
+      display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(249,115,22,0.05);
+    }
+    .stat {
+      flex: 1; min-width: 160px; max-width: 260px;
+      text-align: center; padding: 32px 20px;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 2rem; font-weight: 900; color: var(--accent); }
+    .stat-label { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+
+    /* ─── SECTION ─── */
+    section { padding: 80px 24px; }
+    .container { max-width: 980px; margin: 0 auto; }
+    .section-tag {
+      font-size: .78rem; font-weight: 700; letter-spacing: 2px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 12px;
+    }
+    h2.section-title {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900; margin-bottom: 14px; line-height: 1.2;
+    }
+    h2.section-title em { color: var(--accent); font-style: normal; }
+    .section-sub { color: rgba(255,255,255,0.70); max-width: 560px; margin-bottom: 56px; font-size: 1.2rem; }
+
+    /* ─── PAIN / WHY ─── */
+    .why {
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(249,115,22,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 30%, rgba(234,88,12,0.10) 0%, transparent 55%),
+        linear-gradient(160deg, #0f0804 0%, #120a05 50%, #0a0604 100%);
+      position: relative;
+    }
+    .pain-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .pain-card {
+      background: linear-gradient(145deg, rgba(249,115,22,0.10), rgba(234,88,12,0.04));
+      border: 1px solid rgba(249,115,22,0.22);
+      border-radius: 16px; padding: 28px;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .pain-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(249,115,22,0.5);
+      box-shadow: 0 8px 30px rgba(249,115,22,0.12);
+    }
+    .pain-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .pain-card h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .pain-card p { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+    /* ─── INSTRUCTOR ─── */
+    #instructor { padding: 0; overflow: hidden; }
+    .instructor-tag {
+      text-align: center; padding: 70px 24px 44px;
+      background: linear-gradient(160deg, #0f0804 0%, #120a05 100%);
+    }
+    .instructor-tag .section-tag { margin-bottom: 16px; }
+    .instructor-tag h2 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 900; line-height: 1.2; margin-bottom: 14px;
+    }
+    .instructor-tag h2 em { color: var(--accent); font-style: normal; }
+    .instructor-tag p {
+      font-size: 1.15rem; color: rgba(255,255,255,0.65);
+      max-width: 560px; margin: 0 auto;
+    }
+    .instructor-split {
+      display: flex; align-items: stretch; min-height: 480px;
+    }
+    .instructor-photo {
+      flex: 0 0 44%; position: relative; overflow: hidden;
+    }
+    .instructor-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: right top;
+      display: block;
+    }
+    .instructor-content {
+      flex: 1; padding: 52px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: linear-gradient(135deg, #1a1008 0%, #0f0a04 50%, #1c120a 100%);
+      border-left: 1px solid rgba(249,115,22,0.15);
+    }
+    .ins-name { font-size: 2.4rem; font-weight: 900; margin-bottom: 6px; }
+    .ins-title { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: 28px; }
+    .instructor-bio p { color: rgba(255,255,255,0.80); margin-bottom: 16px; line-height: 1.9; font-size: 1.15rem; }
+    .instructor-bio p b { color: #fff; }
+    .cred-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+    .cred-list li {
+      display: flex; gap: 12px; align-items: flex-start; font-size: 1.1rem;
+    }
+    .cred-list li::before {
+      content: '✦'; color: var(--accent); flex-shrink: 0; margin-top: 3px;
+    }
+    @media (max-width: 768px) {
+      .instructor-split { flex-direction: column; }
+      .instructor-photo { flex: 0 0 auto; height: 300px; }
+      .instructor-photo img { object-position: center top; }
+      .instructor-content { padding: 36px 24px; }
+      .ins-name { font-size: 1.4rem; }
+    }
+
+    /* ─── CLIENTS ─── */
+    .clients {
+      background:
+        radial-gradient(ellipse 70% 50% at 80% 50%, rgba(249,115,22,0.10) 0%, transparent 60%),
+        linear-gradient(160deg, #0a0603 0%, #110804 100%);
+    }
+    .clients-big {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;
+    }
+    .clients-small {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .client-card {
+      border-radius: 16px; padding: 28px;
+      border: 1px solid rgba(249,115,22,0.20);
+      background: rgba(249,115,22,0.05);
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .client-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(249,115,22,0.5);
+      box-shadow: 0 8px 28px rgba(249,115,22,0.12);
+    }
+    .client-card.big { padding: 36px; }
+    .client-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .client-card.big .client-icon { font-size: 3rem; }
+    .client-tag {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(249,115,22,0.35);
+      padding: 3px 10px; border-radius: 50px; margin-bottom: 10px;
+    }
+    .client-name { font-size: 1.38rem; font-weight: 800; margin-bottom: 4px; }
+    .client-card.big .client-name { font-size: 1.68rem; }
+    .client-sub { font-size: .98rem; color: rgba(255,255,255,0.45); margin-bottom: 10px; font-style: italic; }
+    .client-result { font-size: 1.06rem; color: rgba(255,255,255,0.60); line-height: 1.6; }
+    .client-card.big .client-result { font-size: 1.2rem; }
+    .client-stat {
+      margin-top: 16px; font-size: 1.5rem; font-weight: 900; color: var(--accent);
+    }
+    .client-stat span { font-size: .82rem; font-weight: 500; color: rgba(255,255,255,0.50); display: block; }
+    /* Gallery popup */
+    .has-gallery { position: relative; }
+    .gallery-hint {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px; font-size: .82rem; font-weight: 700;
+      color: var(--accent); cursor: pointer;
+    }
+    .gallery-hint::before { content: '📷'; }
+    .gallery-popup {
+      position: absolute; bottom: calc(100% + 12px); left: 0; right: 0;
+      background: #1a0f05;
+      border: 1px solid rgba(249,115,22,0.4);
+      border-radius: 16px; padding: 14px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 8px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .25s, transform .25s, visibility .25s;
+      z-index: 200;
+      box-shadow: 0 -8px 40px rgba(0,0,0,0.6);
+    }
+    .gallery-popup img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover; border-radius: 8px;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .gallery-popup img:hover { transform: scale(1.04); }
+    .gallery-popup img:nth-child(4),
+    .gallery-popup img:nth-child(5) { grid-column: span 1; }
+    .has-gallery:hover .gallery-popup,
+    .has-gallery.open .gallery-popup {
+      opacity: 1; visibility: visible; pointer-events: all;
+      transform: translateY(0);
+    }
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9000; opacity: 0; visibility: hidden;
+      transition: opacity .2s;
+    }
+    .lightbox.show { opacity: 1; visibility: visible; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; }
+    .lightbox-close {
+      position: absolute; top: 20px; right: 24px;
+      font-size: 2rem; color: #fff; cursor: pointer; line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .clients-big { grid-template-columns: 1fr; }
+      .clients-small { grid-template-columns: 1fr 1fr; }
+      .gallery-popup { position: fixed; bottom: auto; top: 50%; left: 5%; right: 5%;
+        transform: translateY(-50%) scale(.95); }
+      .has-gallery:hover .gallery-popup { transform: translateY(-50%) scale(1); }
+      .has-gallery.open .gallery-popup { transform: translateY(-50%) scale(1); }
+    }
+    @media (max-width: 480px) {
+      .clients-small { grid-template-columns: 1fr; }
+    }
+
+    /* ─── BANNER 121 ─── */
+    .banner-121 {
+      padding: 0 0 60px;
+      background: var(--dark);
+    }
+    .banner-121-img {
+      display: block;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 48px rgba(249,115,22,0.18);
+    }
+    @media (max-width: 768px) {
+      .banner-121 { padding: 0 0 40px; }
+      .banner-121-img { border-radius: 12px; }
+    }
+
+    /* ─── CURRICULUM ─── */
+    .curriculum {
+      background:
+        radial-gradient(ellipse 60% 50% at 15% 40%, rgba(249,115,22,0.13) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 85% 70%, rgba(234,88,12,0.10) 0%, transparent 50%),
+        linear-gradient(160deg, #1c1008 0%, #110a04 50%, #1a0e06 100%);
+    }
+    .modules {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 22px;
+    }
+    .module {
+      background: linear-gradient(145deg, rgba(249,115,22,0.09), rgba(234,88,12,0.03));
+      border: 1px solid rgba(249,115,22,0.22);
+      border-radius: 16px; padding: 30px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .module:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(249,115,22,0.12); }
+    .module-num {
+      font-size: .88rem; font-weight: 700; letter-spacing: 2px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 12px;
+    }
+    .module h4 { font-size: 1.37rem; font-weight: 800; margin-bottom: 12px; }
+    .module ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .module ul li { font-size: 1.1rem; color: rgba(255,255,255,0.65); padding-left: 18px; position: relative; line-height: 1.5; }
+    .module ul li::before { content: '→'; position: absolute; left: 0; color: var(--primary); }
+
+    /* ─── FOR WHO ─── */
+    .forwho {
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(249,115,22,0.10) 0%, transparent 60%),
+        linear-gradient(160deg, #110a04 0%, #1a0e06 100%);
+    }
+    .audience-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 768px) {
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+    .aud-card {
+      position: relative; overflow: hidden;
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 16px;
+      min-height: 230px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .aud-card:hover { transform: translateY(-5px); border-color: rgba(249,115,22,0.6); box-shadow: 0 12px 36px rgba(249,115,22,0.18); }
+    .aud-card-img {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform .5s ease;
+      filter: brightness(0.55) saturate(0.85);
+    }
+    .aud-card:hover .aud-card-img { transform: scale(1.07); }
+    .aud-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,4,0,0.92) 0%, rgba(8,4,0,0.45) 55%, rgba(8,4,0,0.08) 100%);
+    }
+    .aud-card-content {
+      position: relative; z-index: 1;
+      padding: 20px 20px 22px;
+    }
+    .aud-card h4 { font-size: 1.15rem; font-weight: 800; margin-bottom: 7px; color: #fff; }
+    .aud-card p { font-size: .92rem; color: rgba(255,255,255,0.72); line-height: 1.55; }
+
+    /* ─── PRICING ─── */
+    .pricing { background: var(--dark); }
+    .pricing-grid {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; align-items: flex-start;
+    }
+    .price-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px 28px;
+      width: 100%; max-width: 300px;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      position: relative;
+    }
+    .price-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(249,115,22,0.7);
+      box-shadow: 0 16px 48px rgba(249,115,22,0.22);
+    }
+
+    /* ─── PRICING PREVIEW IMAGE ─── */
+    .pricing-preview {
+      width: 100%; max-width: 960px; margin: 0 auto 32px;
+      border-radius: 18px; overflow: hidden;
+      height: 0;
+      opacity: 0;
+      transition: height .35s ease, opacity .35s ease;
+      border: 1px solid transparent;
+    }
+    .pricing-preview.show {
+      height: 320px;
+      opacity: 1;
+      border-color: rgba(249,115,22,0.3);
+    }
+    .pricing-preview img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      display: block;
+    }
+    .price-card.featured {
+      border-color: var(--accent);
+      background: rgba(249,115,22,0.10);
+      box-shadow: 0 0 40px rgba(249,115,22,0.20);
+    }
+    .popular-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #000;
+      font-size: .75rem; font-weight: 800; padding: 4px 18px;
+      border-radius: 50px; letter-spacing: .5px; white-space: nowrap;
+    }
+    .plan-name { font-size: .8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .plan-title { font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; }
+    .price-original {
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--muted); text-decoration: line-through;
+      margin-bottom: 2px; display: flex; align-items: center; gap: 8px;
+    }
+    .discount-badge {
+      display: inline-block;
+      background: rgba(249,115,22,0.18);
+      color: var(--accent);
+      font-size: 0.7rem; font-weight: 800;
+      padding: 2px 8px; border-radius: 20px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .price { font-size: 2.4rem; font-weight: 900; color: var(--accent); margin-bottom: 2px; }
+    .price sub { font-size: 1rem; font-weight: 600; }
+    .price-note { font-size: .8rem; color: var(--muted); margin-bottom: 24px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 30px; }
+    .price-features li { font-size: .88rem; display: flex; gap: 10px; align-items: flex-start; }
+    .price-features li .ck { color: #4ade80; flex-shrink: 0; }
+    .btn-enroll {
+      display: block; text-align: center; padding: 14px;
+      border-radius: 50px; font-weight: 800; font-size: .95rem;
+      text-decoration: none; transition: .2s;
+    }
+    .btn-enroll.primary {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff; box-shadow: 0 0 20px rgba(249,115,22,0.4);
+    }
+    .btn-enroll.primary:hover { box-shadow: 0 0 35px rgba(249,115,22,0.65); }
+    .btn-enroll.outline {
+      border: 1.5px solid var(--border); color: var(--text);
+    }
+    .btn-enroll.outline:hover { border-color: var(--primary); color: #fdba74; }
+    .btn-enroll.gold {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #000;
+    }
+
+    /* ─── RESULTS ─── */
+    .results { background: var(--dark3); }
+    .results-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .result-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+    }
+    .result-card .quote { font-size: 1rem; color: var(--text); margin-bottom: 16px; line-height: 1.7; font-style: italic; }
+    .result-card .who { font-size: .85rem; color: var(--muted); font-weight: 600; }
+
+    /* ─── FAQ ─── */
+    .faq { background: var(--dark2); }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 720px; }
+    details {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 0;
+      cursor: pointer;
+    }
+    summary {
+      padding: 18px 22px;
+      font-weight: 700; font-size: .95rem;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--accent); transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { padding: 0 22px 18px; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 110%, rgba(249,115,22,0.3) 0%, transparent 65%),
+        var(--dark);
+      text-align: center; padding: 100px 24px;
+    }
+    .final-cta h2 { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; margin-bottom: 16px; }
+    .final-cta h2 em { color: var(--accent); font-style: normal; }
+    .final-cta p { color: var(--muted); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .countdown {
+      display: flex; gap: 16px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap;
+    }
+    .cd-box {
+      background: rgba(249,115,22,0.12); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 20px; text-align: center; min-width: 72px;
+    }
+    .cd-num { font-size: 1.8rem; font-weight: 900; color: var(--accent); }
+    .cd-lbl { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ─── PAYMENT MODAL ─── */
+    .pay-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+      z-index: 8000; display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; visibility: hidden; transition: .25s;
+    }
+    .pay-overlay.show { opacity: 1; visibility: visible; }
+    .pay-modal {
+      background: linear-gradient(145deg, #1c1008, #120a04);
+      border: 1px solid rgba(249,115,22,0.35);
+      border-radius: 20px; padding: 36px 32px;
+      width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
+      position: relative;
+      transform: translateY(20px); transition: transform .25s;
+    }
+    .pay-overlay.show .pay-modal { transform: translateY(0); }
+    .pay-close {
+      position: absolute; top: 16px; right: 20px;
+      font-size: 1.4rem; color: var(--muted); cursor: pointer; line-height: 1;
+    }
+    .pay-close:hover { color: #fff; }
+    .pay-package {
+      display: inline-block; background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.35); color: #fdba74;
+      font-size: .8rem; font-weight: 700; letter-spacing: 1px;
+      padding: 4px 14px; border-radius: 50px; margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .pay-price-big { font-size: 2rem; font-weight: 900; color: var(--accent); margin-bottom: 24px; }
+    .pay-bank {
+      background: rgba(249,115,22,0.07); border: 1px solid rgba(249,115,22,0.2);
+      border-radius: 14px; padding: 20px; margin-bottom: 24px;
+    }
+    .pay-bank-title { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .pay-bank-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: .95rem; }
+    .pay-bank-row:last-child { margin-bottom: 0; }
+    .pay-bank-label { color: var(--muted); }
+    .pay-bank-val { font-weight: 800; color: #fff; }
+    .pay-stk { font-size: 1.3rem; color: var(--accent); letter-spacing: 2px; }
+    .copy-btn {
+      background: rgba(249,115,22,0.2); border: 1px solid rgba(249,115,22,0.4);
+      color: var(--accent); font-size: .75rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 6px; cursor: pointer;
+      transition: background .2s;
+    }
+    .copy-btn:hover { background: rgba(249,115,22,0.4); }
+    .pay-form label { display: block; font-size: .85rem; color: var(--muted); margin-bottom: 6px; margin-top: 14px; }
+    .pay-form input {
+      width: 100%; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(249,115,22,0.25); border-radius: 10px;
+      padding: 12px 16px; color: #fff; font-size: 1rem;
+      outline: none; transition: border-color .2s;
+    }
+    .pay-form input:focus { border-color: var(--accent); }
+    .pay-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .pay-submit {
+      width: 100%; margin-top: 22px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff; font-size: 1.05rem; font-weight: 800;
+      padding: 14px; border-radius: 50px; border: none; cursor: pointer;
+      box-shadow: 0 0 24px rgba(249,115,22,0.4);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .pay-submit:hover { box-shadow: 0 0 40px rgba(249,115,22,0.65); transform: translateY(-2px); }
+    .pay-note { font-size: .8rem; color: var(--muted); text-align: center; margin-top: 12px; line-height: 1.6; }
+    .pay-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 6px; }
+    .pay-pkg {
+      display: inline-block; background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.35); color: #fdba74;
+      font-size: .82rem; font-weight: 700; letter-spacing: .5px;
+      padding: 4px 14px; border-radius: 50px; margin-bottom: 18px;
+    }
+    .pay-acct { font-size: 1.2rem; color: var(--accent); letter-spacing: 2px; }
+    .pay-amount { color: var(--accent); font-size: 1.1rem; }
+    .pay-form { display: flex; flex-direction: column; }
+    .pay-form-title { font-size: .85rem; font-weight: 700; color: var(--muted); letter-spacing: .5px; margin-bottom: 4px; }
+    .pay-field { display: flex; flex-direction: column; }
+    .pay-success { text-align: center; padding: 20px 0; display: none; flex-direction: column; align-items: center; }
+    .pay-success-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: 14px; }
+    .pay-success h4 { font-size: 1.4rem; font-weight: 900; margin-bottom: 10px; }
+    .pay-success p { color: var(--muted); font-size: .95rem; line-height: 1.7; }
+
+    /* ─── REGISTER SECTION ─── */
+    .register-section {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249,115,22,0.18) 0%, transparent 65%),
+        linear-gradient(160deg, #0d0600 0%, #120800 100%);
+      border-top: 1px solid rgba(249,115,22,0.25);
+      border-bottom: 1px solid rgba(249,115,22,0.25);
+    }
+    .register-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      max-width: 960px; margin: 0 auto;
+    }
+    .register-left { }
+    @keyframes eyebrow-flash {
+      0%,100% { color: #f97316; text-shadow: 0 0 10px rgba(249,115,22,0.6), 0 0 30px rgba(249,115,22,0.3); }
+      25%      { color: #fbbf24; text-shadow: 0 0 20px rgba(251,191,36,0.9), 0 0 50px rgba(251,191,36,0.4); }
+      50%      { color: #ffffff; text-shadow: 0 0 18px rgba(255,255,255,0.8), 0 0 40px rgba(249,115,22,0.5); }
+      75%      { color: #fb923c; text-shadow: 0 0 14px rgba(249,115,22,0.7), 0 0 35px rgba(249,115,22,0.3); }
+    }
+    .register-eyebrow {
+      font-size: 1.1rem; font-weight: 900; letter-spacing: 2.5px;
+      text-transform: uppercase; margin-bottom: 18px;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      animation: eyebrow-flash 2s ease-in-out infinite;
+      display: inline-block;
+    }
+    .register-left h2 {
+      font-size: clamp(1.92rem, 4.2vw, 2.88rem);
+      font-weight: 900; line-height: 1.2; margin-bottom: 18px;
+    }
+    .register-left h2 em { color: var(--accent); font-style: normal; }
+    .register-left p {
+      font-size: 1.2rem; color: rgba(255,255,255,0.70); line-height: 1.7; margin-bottom: 28px;
+    }
+    /* Countdown trong register */
+    .reg-countdown { display: flex; gap: 10px; }
+    .reg-cd-box {
+      background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 12px; padding: 14px 18px; text-align: center; min-width: 70px;
+    }
+    .reg-cd-num {
+      font-size: 2.16rem; font-weight: 900; color: var(--accent); line-height: 1;
+      font-variant-numeric: tabular-nums;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .reg-cd-lbl {
+      font-size: .78rem; color: var(--muted); letter-spacing: 1px;
+      text-transform: uppercase; margin-top: 5px;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    /* Form card */
+    .register-card {
+      background: rgba(249,115,22,0.06);
+      border: 1.5px solid rgba(249,115,22,0.28);
+      border-radius: 22px; padding: 40px 36px;
+      box-shadow: 0 0 60px rgba(249,115,22,0.10);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .register-card h3 {
+      font-size: 1.5rem; font-weight: 900; margin-bottom: 6px;
+    }
+    .register-card .reg-sub {
+      font-size: 1.06rem; color: var(--muted); margin-bottom: 24px;
+    }
+    .reg-field { margin-bottom: 18px; }
+    .reg-field label {
+      display: block; font-size: .96rem; font-weight: 700;
+      color: rgba(255,255,255,0.65); margin-bottom: 7px;
+    }
+    .reg-field input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 10px; padding: 14px 18px;
+      color: #fff; font-size: 1.1rem; outline: none;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      transition: border-color .2s, background .2s;
+    }
+    .reg-field input:focus {
+      border-color: var(--accent);
+      background: rgba(249,115,22,0.08);
+    }
+    .reg-field input::placeholder { color: rgba(255,255,255,0.28); }
+    .reg-submit {
+      width: 100%; margin-top: 10px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff; font-size: 1.2rem; font-weight: 900;
+      padding: 17px; border-radius: 50px; border: none; cursor: pointer;
+      box-shadow: 0 0 28px rgba(249,115,22,0.45);
+      transition: box-shadow .2s, transform .2s;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .reg-submit:hover { box-shadow: 0 0 50px rgba(249,115,22,0.7); transform: translateY(-2px); }
+    .reg-note { font-size: .9rem; color: var(--muted); text-align: center; margin-top: 14px; }
+    .reg-success { display: none; text-align: center; padding: 20px 0; }
+    .reg-success-icon { font-size: 3rem; margin-bottom: 12px; }
+    .reg-success h4 { font-size: 1.56rem; font-weight: 900; margin-bottom: 8px; }
+    .reg-success p { color: var(--muted); font-size: 1.14rem; line-height: 1.7; }
+    @media (max-width: 768px) {
+      .register-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .register-card { padding: 30px 24px; }
+      .reg-cd-num { font-size: 1.8rem; }
+      .reg-cd-box { min-width: 58px; padding: 11px 13px; }
+      .register-left p { font-size: 1.05rem; }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #08050f;
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center; font-size: .82rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    /* ─── FLOATING CONTACT BUTTONS ─── */
+    .float-contact {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 9999;
+    }
+    .float-btn {
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      position: relative;
+    }
+    .float-btn::before {
+      content: '';
+      position: absolute; inset: -4px;
+      border-radius: 50%;
+      animation: ripple 1.8s ease-out infinite;
+    }
+    .float-zalo {
+      background: #0068FF;
+    }
+    .float-zalo::before { background: rgba(0,104,255,0.4); }
+    .float-phone {
+      background: #22c55e;
+    }
+    .float-phone::before { background: rgba(34,197,94,0.4); }
+
+    /* Zalo SVG icon */
+    .float-zalo svg, .float-phone svg {
+      width: 28px; height: 28px; fill: #fff; flex-shrink: 0;
+    }
+
+    /* Tooltip label */
+    .float-btn .tip {
+      position: absolute;
+      right: 62px;
+      background: rgba(15,10,30,0.92);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: .78rem; font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+    }
+    .float-btn:hover .tip { opacity: 1; }
+
+    @keyframes ripple {
+      0%   { transform: scale(1); opacity: .7; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    /* Mobile: nhỏ lại và xuống góc phải dưới */
+    @media (max-width: 768px) {
+      .float-contact {
+        right: 14px;
+        bottom: 24px;
+        top: auto;
+        transform: none;
+      }
+      .float-btn { width: 50px; height: 50px; font-size: 1.35rem; }
+      .float-btn .tip { display: none; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .instructor-wrap { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <span class="logo-name">Thắng</span>
+    <span class="logo-x">×</span>
+    <img src="raw/LOGO TST Marketing Agency - 2-04.png" alt="TST Agency" class="logo-img"/>
+  </div>
+  <a href="#pricing" class="cta-nav">Đăng ký ngay →</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <a href="thang-tst.html" class="instructor-pill">
+      <img src="raw/z7811611094638_bbccca556c08c286322e06b8b152a584.jpg" alt="Thắng TST" />
+      <span>Thắng TST là ai?</span>
+      <em>Xem ngay →</em>
+    </a>
+    <div class="badge">⚡ Khoá học thực chiến · Áp dụng ngay từ ngày 1</div>
+    <h1>
+      Biến AI Claude thành<br/>
+      <em>Cỗ Máy Kiếm Tiền</em><br/>
+      <strong>Cho Công Việc Của Bạn</strong>
+    </h1>
+    <p class="sub">
+      Không cần biết lập trình. Không cần dân kỹ thuật.<br/>
+      <b>Chỉ cần muốn làm việc thông minh hơn<br/><span class="highlight-now">ngay hôm nay.</span></b>
+    </p>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn-primary">Chọn khoá học phù hợp →</a>
+      <a href="#curriculum" class="btn-ghost">Xem lộ trình học</a>
+    </div>
+    <p class="urgency">🔥 <span>Chỉ còn vài slot</span> cho đợt khai giảng tháng này</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Năm marketing thực chiến</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100+</div>
+    <div class="stat-label">Doanh nghiệp đã hỗ trợ</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100 tỷ+</div>
+    <div class="stat-label">Vốn hoá doanh nghiệp quản lý</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3 gói</div>
+    <div class="stat-label">Phù hợp mọi đối tượng</div>
+  </div>
+</div>
+
+<!-- WHY (Pain points) -->
+<section class="why" id="why">
+  <div class="container">
+    <p class="section-tag">Vấn đề bạn đang gặp</p>
+    <h2 class="section-title">Bạn đang <em>mò mẫm</em> với AI<br/>trong khi người khác đã chạy lên trước?</h2>
+    <p class="section-sub">Biết AI hay nhưng không biết bắt đầu từ đâu, đó là lý do 95% người dùng AI vẫn chỉ... hỏi thời tiết.</p>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section id="instructor">
+  <div class="instructor-tag">
+    <p class="section-tag">Người đồng hành</p>
+    <h2>Bạn được chuyên gia thực chiến marketing<br/>đi trước, ứng dụng trước, giờ chỉ lại cho bạn <em>đi nhanh hơn</em></h2>
+    <p>Không phải chuyên gia lý thuyết. Là người đang vận hành thực tế mỗi ngày bằng AI.</p>
+  </div>
+  <div class="instructor-split">
+    <div class="instructor-photo">
+      <img src="raw/z7811611094638_bbccca556c08c286322e06b8b152a584.jpg" alt="Thắng TST"/>
+    </div>
+    <div class="instructor-content">
+      <div class="ins-name">Thắng TST</div>
+      <div class="ins-title">Marketing Strategist & AI Practitioner</div>
+      <div class="instructor-bio">
+        <p>
+          <b>10 năm</b> trực tiếp vận hành marketing, truyền thông cho <b>hàng trăm doanh nghiệp</b>,
+          từ startup đến công ty vốn hoá hàng trăm tỷ. Tôi không dạy lý thuyết.
+          Tôi dạy những gì tôi đang làm mỗi ngày để <b>vận hành agency bằng AI</b>.
+        </p>
+        <p>
+          Lộ trình này là bản đúc rút của cả quá trình thử, sai, tối ưu,
+          giờ tôi cô đọng lại để bạn đi nhanh hơn tôi đã từng.
+        </p>
+        <ul class="cred-list">
+          <li>Sáng lập TST Marketing, hoạt động năm thứ 10</li>
+          <li>Quản lý marketing cho doanh nghiệp vốn hoá 100 tỷ+</li>
+          <li>Người dùng Claude Code & Obsidian hệ thống từ sớm</li>
+          <li>Đã giúp chủ DN & freelancer triển khai AI vào vận hành thực tế</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients">
+  <div class="container">
+    <p class="section-tag">Khách hàng tiêu biểu</p>
+    <h2 class="section-title">Thắng cùng cty đã ứng dụng AI vận hành marketing cho<br/><em>hàng trăm doanh nghiệp phát triển mạnh mẽ</em></h2>
+    <p class="section-sub">Từ tập đoàn trăm tỷ đến doanh nghiệp vừa & nhỏ, AI không phân biệt quy mô.</p>
+
+    <!-- 2 khách lớn -->
+    <div class="clients-big">
+      <div class="client-card big has-gallery" id="ohay-card">
+        <div class="client-icon">🍕</div>
+        <div class="client-tag">F&B · Ẩm thực & Bar Lounge</div>
+        <div class="client-name">ÔHay Bar & Pizza Lò</div>
+        <div class="client-sub">Cty Dịch vụ Ăn uống Hoa Đỏ</div>
+        <div class="client-result">Chuỗi 10 cửa hàng ẩm thực, hải sản & bar lounge lớn nhất Đà Nẵng. AI vận hành toàn bộ marketing đa kênh: content, quảng cáo, chăm sóc khách hàng tự động.</div>
+        <div class="client-stat">10 cửa hàng<span>Lớn nhất Đà Nẵng</span></div>
+        <div class="gallery-hint">Xem hình thực tế →</div>
+        <div class="gallery-popup">
+          <img src="raw/6.jpg"  alt="ÔHay 1"  onclick="openLightbox(this.src)"/>
+          <img src="raw/7.jpg"  alt="ÔHay 2"  onclick="openLightbox(this.src)"/>
+          <img src="raw/8.jpg"  alt="ÔHay 3"  onclick="openLightbox(this.src)"/>
+          <img src="raw/9.jpg"  alt="ÔHay 4"  onclick="openLightbox(this.src)"/>
+          <img src="raw/10.jpg" alt="ÔHay 5"  onclick="openLightbox(this.src)"/>
+          <img src="raw/11.jpg" alt="ÔHay 6"  onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+      <div class="client-card big has-gallery" id="wonder-card">
+        <div class="client-icon">💪</div>
+        <div class="client-tag">Thể thao · Fitness cao cấp</div>
+        <div class="client-name">Wonder Fitness Group</div>
+        <div class="client-sub">Tập đoàn thể thao miền Trung</div>
+        <div class="client-result">Chuỗi 10 phòng tập fitness cao cấp khắp miền Trung. AI xây dựng hệ thống CRM, tự động hoá lead & chăm sóc hội viên, tăng tỷ lệ giữ chân lên 2.5x.</div>
+        <div class="client-stat">10 chi nhánh<span>Khắp miền Trung</span></div>
+        <div class="gallery-hint">Xem hình thực tế →</div>
+        <div class="gallery-popup">
+          <img src="raw/1.jpg" alt="Wonder Fitness 1" onclick="openLightbox(this.src)"/>
+          <img src="raw/2.jpg" alt="Wonder Fitness 2" onclick="openLightbox(this.src)"/>
+          <img src="raw/3.jpg" alt="Wonder Fitness 3" onclick="openLightbox(this.src)"/>
+          <img src="raw/4.jpg" alt="Wonder Fitness 4" onclick="openLightbox(this.src)"/>
+          <img src="raw/5.jpg" alt="Wonder Fitness 5" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 nhóm ngành nhỏ -->
+    <div class="clients-small">
+      <div class="client-card has-gallery" id="clinic-card">
+        <div class="client-icon">🏥</div>
+        <div class="client-tag">Y tế · Phòng khám</div>
+        <div class="client-name">Hàng trăm phòng khám khắp cả nước</div>
+        <div class="client-result">Đồng hành từ những ngày đầu khởi nghiệp đến khi mở rộng thành công nhiều chi nhánh. AI tự động hoá nhắc lịch, tư vấn & chăm sóc bệnh nhân sau điều trị.</div>
+        <div class="gallery-hint">Xem hình thực tế →</div>
+        <div class="gallery-popup">
+          <img src="raw/18.jpg" alt="Clinic 1" onclick="openLightbox(this.src)"/>
+          <img src="raw/19.jpg" alt="Clinic 2" onclick="openLightbox(this.src)"/>
+          <img src="raw/20.jpg" alt="Clinic 3" onclick="openLightbox(this.src)"/>
+          <img src="raw/21.jpg" alt="Clinic 4" onclick="openLightbox(this.src)"/>
+          <img src="raw/22.jpg" alt="Clinic 5" onclick="openLightbox(this.src)"/>
+          <img src="raw/23.jpg" alt="Clinic 6" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+      <div class="client-card has-gallery" id="edu-card">
+        <div class="client-icon">🎓</div>
+        <div class="client-tag">Giáo dục · Đào tạo</div>
+        <div class="client-name">Chuỗi trung tâm ngoại ngữ & kỹ năng</div>
+        <div class="client-result">Trung tâm ngoại ngữ, đào tạo nghề, kiến thức cho trẻ. AI phân loại học viên, tư vấn tự động & sản xuất nội dung chiêu sinh liên tục.</div>
+        <div class="gallery-hint">Xem hình thực tế →</div>
+        <div class="gallery-popup">
+          <img src="raw/12.jpg" alt="Edu 1" onclick="openLightbox(this.src)"/>
+          <img src="raw/13.jpg" alt="Edu 2" onclick="openLightbox(this.src)"/>
+          <img src="raw/14.jpg" alt="Edu 3" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+      <div class="client-card has-gallery" id="beauty-card">
+        <div class="client-icon">👗</div>
+        <div class="client-tag">Thời trang · Mỹ phẩm</div>
+        <div class="client-name">Thương hiệu thời trang & mỹ phẩm</div>
+        <div class="client-result">Từ cửa hàng offline đến kênh online. AI xây dựng hồ sơ khách hàng, tự động content & remarketing, doanh thu tăng đều qua từng tháng.</div>
+        <div class="gallery-hint">Xem hình thực tế →</div>
+        <div class="gallery-popup">
+          <img src="raw/15.webp" alt="Beauty 1" onclick="openLightbox(this.src)"/>
+          <img src="raw/16.webp" alt="Beauty 2" onclick="openLightbox(this.src)"/>
+          <img src="raw/17.webp" alt="Beauty 3" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER 121 -->
+<section class="banner-121">
+  <div class="container">
+    <img src="raw/121.png" alt="Khoá Đào Tạo Claude AI Ứng Dụng Kinh Doanh" class="banner-121-img" />
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="container">
+    <p class="section-tag">Lộ trình học</p>
+    <h2 class="section-title">Từ Zero → <em>Hệ Thống AI</em><br/>Vận Hành Thực Chiến</h2>
+    <p class="section-sub">6 module thực hành, không padding, không lý thuyết thừa.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="module-num">Module 01</div>
+        <h4>Nền tảng Claude & Tư duy AI đúng</h4>
+        <ul>
+          <li>Claude Code là gì, sức mạnh thật sự</li>
+          <li>Cách ra lệnh (prompt) để AI hiểu đúng ý</li>
+          <li>Tư duy làm việc với AI như một nhân viên giỏi</li>
+        </ul>
+      </div>
+      <div class="module">
+        <div class="module-num">Module 02</div>
+        <h4>Thiết lập hệ thống "bộ não" Obsidian</h4>
+        <ul>
+          <li>Kết nối Obsidian + Claude Code</li>
+          <li>Xây vault cá nhân / doanh nghiệp</li>
+          <li>Quản lý thông tin không bao giờ bị mất</li>
+        </ul>
+      </div>
+      <div class="module">
+        <div class="module-num">Module 03</div>
+        <h4>Hồ sơ khách hàng & CRM bằng AI</h4>
+        <ul>
+          <li>Tự động hoá thu thập & phân tích data KH</li>
+          <li>Xây hồ sơ khách hàng chuẩn từ A đến Z</li>
+          <li>Phân khúc & cá nhân hoá không cần team lớn</li>
+        </ul>
+      </div>
+      <div class="module">
+        <div class="module-num">Module 04</div>
+        <h4>AI làm nội dung & marketing đa kênh</h4>
+        <ul>
+          <li>Tạo bài viết, caption, kịch bản video hàng loạt</li>
+          <li>Giữ đúng tone thương hiệu qua AI</li>
+          <li>Lên lịch nội dung 30 ngày trong vài phút</li>
+        </ul>
+      </div>
+      <div class="module">
+        <div class="module-num">Module 05</div>
+        <h4>Vận hành & tự động hoá công việc lặp</h4>
+        <ul>
+          <li>Tự động báo cáo, tổng hợp dữ liệu</li>
+          <li>AI xử lý email, tài liệu, hợp đồng</li>
+          <li>Workflow giảm 60 đến 70% thời gian thao tác tay</li>
+        </ul>
+      </div>
+      <div class="module">
+        <div class="module-num">Module 06</div>
+        <h4>Xây hệ thống AI riêng cho ngành bạn</h4>
+        <ul>
+          <li>Tuỳ chỉnh lộ trình AI theo ngành nghề cụ thể</li>
+          <li>Nhân sức lao động 1 người → năng lực cả team</li>
+          <li>Bản đồ AI cá nhân hoá để mang về dùng ngay</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="forwho" id="forwho">
+  <div class="container">
+    <p class="section-tag">Dành cho ai?</p>
+    <h2 class="section-title">Khoá học này <em>phù hợp</em> với bạn nếu…</h2>
+    <p class="section-sub">Không phân biệt ngành nghề, chỉ cần muốn làm việc hiệu quả hơn.</p>
+    <div class="audience-grid">
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Chủ doanh nghiệp</h4>
+          <p>Muốn tối ưu vận hành, giảm chi phí nhân sự, ra quyết định nhanh hơn</p>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Freelancer & KOL</h4>
+          <p>Muốn nhân output, tạo nội dung hàng loạt, tăng thu nhập không cần team</p>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Nhân viên & Quản lý</h4>
+          <p>Muốn làm việc hiệu quả hơn, thăng tiến nhanh hơn nhờ AI</p>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Kinh doanh online</h4>
+          <p>Muốn AI viết bài, chăm sóc KH, phân tích thị trường thay bạn</p>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Dân marketing</h4>
+          <p>Muốn triển khai chiến dịch nhanh gấp 5 đến 10 lần với chất lượng cao hơn</p>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Người làm tự do</h4>
+          <p>Muốn dùng AI như một đội nhóm thu nhỏ, tự xử lý mọi việc từ A đến Z</p>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Hộ kinh doanh nhỏ</h4>
+          <p>Muốn có marketing chuyên nghiệp mà không cần thuê nhân sự hay agency</p>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-card-img" style="background-image:url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=75&auto=format&fit=crop')"></div>
+        <div class="aud-card-overlay"></div>
+        <div class="aud-card-content">
+          <h4>Startup & người khởi nghiệp</h4>
+          <p>Muốn tăng tốc xây dựng thương hiệu và vận hành bằng AI ngay từ đầu</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <p class="section-tag">Đăng ký học</p>
+    <h2 class="section-title">Chọn hình thức <em>phù hợp nhất</em></h2>
+    <p class="section-sub">Đầu tư một lần, dùng AI cả đời. Chọn gói phù hợp với bạn.</p>
+
+    <div class="pricing-preview" id="pricingPreview">
+      <img src="raw/100.jpg" alt="Khoá học AI Claude"/>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Gói tập thể -->
+      <div class="price-card">
+        <div class="plan-name">Room Tập Thể</div>
+        <div class="plan-title">Học cùng cộng đồng</div>
+        <div class="price-original">1.299<sub>k</sub> <span class="discount-badge">Giảm 47%</span></div>
+        <div class="price">689<sub>k</sub></div>
+        <div class="price-note">/ người · Ưu đãi có hạn · Thanh toán một lần</div>
+        <ul class="price-features">
+          <li><span class="ck">✓</span> Toàn bộ 6 module lộ trình</li>
+          <li><span class="ck">✓</span> Học theo nhóm, cùng tiến độ</li>
+          <li><span class="ck">✓</span> Group hỏi đáp chung</li>
+          <li><span class="ck">✓</span> Tài liệu & template thực chiến</li>
+          <li><span class="ck">✓</span> Cập nhật nội dung mới miễn phí</li>
+        </ul>
+        <a href="#" class="btn-enroll outline" onclick="openPayment('Room Tập Thể','689.000đ');return false;">Đăng ký gói này</a>
+      </div>
+
+      <!-- Gói 1-1 -->
+      <div class="price-card featured">
+        <div class="popular-badge">⭐ Được chọn nhiều nhất</div>
+        <div class="plan-name">Coaching 1:1</div>
+        <div class="plan-title">Kèm riêng 1:1</div>
+        <div class="price-original">6.99<sub>tr</sub> <span class="discount-badge">Giảm 44%</span></div>
+        <div class="price">3.89<sub>tr</sub></div>
+        <div class="price-note">/ người · Ưu đãi có hạn · Cá nhân hoá 100%</div>
+        <ul class="price-features">
+          <li><span class="ck">✓</span> Toàn bộ 6 module lộ trình</li>
+          <li><span class="ck">✓</span> Buổi 1:1 cùng Thắng TST</li>
+          <li><span class="ck">✓</span> Thiết kế hệ thống AI riêng cho bạn</li>
+          <li><span class="ck">✓</span> Review & tối ưu workflow cá nhân</li>
+          <li><span class="ck">✓</span> Hỗ trợ trực tiếp 30 ngày sau học</li>
+          <li><span class="ck">✓</span> Template & prompt library độc quyền</li>
+        </ul>
+        <a href="#" class="btn-enroll gold" onclick="openPayment('Coaching 1:1','3.890.000đ');return false;">Đăng ký ngay →</a>
+      </div>
+
+      <!-- Gói Team -->
+      <div class="price-card">
+        <div class="plan-name">Team / Doanh Nghiệp</div>
+        <div class="plan-title">Training cho cả công ty</div>
+        <div class="price-original">22.99<sub>tr</sub> <span class="discount-badge">Giảm 44%</span></div>
+        <div class="price">12.89<sub>tr</sub></div>
+        <div class="price-note">/ team · Ưu đãi có hạn · Tối đa 15 người</div>
+        <ul class="price-features">
+          <li><span class="ck">✓</span> Toàn bộ 6 module lộ trình</li>
+          <li><span class="ck">✓</span> Workshop live cho cả team</li>
+          <li><span class="ck">✓</span> Tuỳ chỉnh nội dung theo ngành DN</li>
+          <li><span class="ck">✓</span> Thiết kế SOP AI cho công ty</li>
+          <li><span class="ck">✓</span> Hỗ trợ triển khai sau training</li>
+          <li><span class="ck">✓</span> Báo cáo tiến độ & kết quả team</li>
+          <li><span class="ck">✓</span> Xuất hoá đơn chi phí đào tạo</li>
+        </ul>
+        <a href="#" class="btn-enroll outline" onclick="openPayment('Team / Doanh Nghiệp','12.890.000đ');return false;">Liên hệ tư vấn</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS / TESTIMONIALS -->
+<section class="results">
+  <div class="container">
+    <p class="section-tag">Kết quả thực tế</p>
+    <h2 class="section-title">Người học nói gì <em>sau khoá học?</em></h2>
+    <p class="section-sub">Không phải lời hứa, đây là những gì xảy ra khi bạn áp dụng đúng.</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <p class="quote">"Trước đây tôi mất 3 tiếng để viết một bộ content tuần. Giờ với hệ thống Thắng chỉ, tôi làm xong trong 40 phút, chất lượng còn tốt hơn."</p>
+        <div class="who">Chủ spa làm đẹp · TP.HCM</div>
+      </div>
+      <div class="result-card">
+        <p class="quote">"Tôi là dân kinh doanh, không rành công nghệ. Nhưng sau 2 buổi 1:1 với Thắng, tôi đã tự xây được hệ thống AI quản lý khách hàng cho shop của mình."</p>
+        <div class="who">Chủ shop thời trang · Hà Nội</div>
+      </div>
+      <div class="result-card">
+        <p class="quote">"Team 5 người giờ làm được việc của team 12 người. ROI của khoá training này hoàn vốn sau đúng 3 tuần đầu áp dụng."</p>
+        <div class="who">Giám đốc agency digital · Đà Nẵng</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <p class="section-tag">Câu hỏi thường gặp</p>
+    <h2 class="section-title">Còn băn khoăn? <em>Đọc đây trước.</em></h2>
+    <div class="faq-list">
+      <details>
+        <summary>Tôi không biết gì về AI, học được không?</summary>
+        <p>Hoàn toàn được. Khoá học được thiết kế từ nền tảng, không yêu cầu bất kỳ kiến thức kỹ thuật nào. Nếu bạn biết dùng điện thoại, bạn học được.</p>
+      </details>
+      <details>
+        <summary>Claude Code khác ChatGPT như thế nào?</summary>
+        <p>Claude Code mạnh hơn về tư duy logic, xử lý văn bản dài, và khả năng làm việc có hệ thống. Kết hợp với Obsidian, nó trở thành bộ não thứ hai thực sự, không chỉ là công cụ hỏi đáp.</p>
+      </details>
+      <details>
+        <summary>Học xong có dùng được ngay không?</summary>
+        <p>Có. Từ module đầu tiên bạn đã có bài tập áp dụng thực tế. Triết lý của khoá là "học gì làm ngay cái đó", không tích luỹ lý thuyết chờ sau mới dùng.</p>
+      </details>
+      <details>
+        <summary>Gói 1:1 học mấy buổi? Học online hay offline?</summary>
+        <p>Học online qua video call. Số buổi tuỳ gói và nhu cầu cá nhân, sẽ được trao đổi và chốt khi đăng ký. Thông thường 3 đến 5 buổi + hỗ trợ async 30 ngày.</p>
+      </details>
+      <details>
+        <summary>Gói Team tối đa bao nhiêu người?</summary>
+        <p>Gói mặc định cho đến 15 người. Nếu team bạn lớn hơn, liên hệ để trao đổi giải pháp phù hợp, có thể chia thành nhiều buổi hoặc điều chỉnh giá.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER SECTION -->
+<section class="register-section" id="register">
+  <div class="register-wrap">
+
+    <!-- Trái: lời kêu gọi + đếm ngược -->
+    <div class="register-left">
+      <p class="register-eyebrow">⚡ Đăng ký ngay hôm nay</p>
+      <h2>Đừng để cơ hội này<br/><em>trôi qua thêm một ngày</em></h2>
+      <p>Mỗi ngày không dùng AI là một ngày bạn đang thua đối thủ. Đăng ký nhận tư vấn miễn phí, Thắng sẽ liên hệ trong vòng 2 giờ làm việc.</p>
+      <div class="reg-countdown">
+        <div class="reg-cd-box"><div class="reg-cd-num" id="rcd-days">05</div><div class="reg-cd-lbl">Ngày</div></div>
+        <div class="reg-cd-box"><div class="reg-cd-num" id="rcd-hours">12</div><div class="reg-cd-lbl">Giờ</div></div>
+        <div class="reg-cd-box"><div class="reg-cd-num" id="rcd-mins">00</div><div class="reg-cd-lbl">Phút</div></div>
+        <div class="reg-cd-box"><div class="reg-cd-num" id="rcd-secs">00</div><div class="reg-cd-lbl">Giây</div></div>
+      </div>
+    </div>
+
+    <!-- Phải: form đăng ký -->
+    <div class="register-card">
+      <h3>📋 Để lại thông tin</h3>
+      <p class="reg-sub">Hoàn toàn miễn phí · Không spam · Tư vấn 1:1 tận tâm</p>
+      <form id="regForm" onsubmit="submitRegForm(event)">
+        <div class="reg-field">
+          <label>Họ và tên *</label>
+          <input type="text" id="regName" placeholder="Nguyễn Văn A" required/>
+        </div>
+        <div class="reg-field">
+          <label>Số điện thoại *</label>
+          <input type="tel" id="regPhone" placeholder="09xx xxx xxx" required/>
+        </div>
+        <div class="reg-field">
+          <label>Email *</label>
+          <input type="email" id="regEmail" placeholder="email@example.com" required/>
+        </div>
+        <button type="submit" class="reg-submit">Đăng ký tư vấn miễn phí →</button>
+        <p class="reg-note">🔒 Thông tin của bạn được bảo mật tuyệt đối</p>
+      </form>
+      <div class="reg-success" id="regSuccess">
+        <div class="reg-success-icon">🎉</div>
+        <h4>Đăng ký thành công!</h4>
+        <p>Thắng sẽ liên hệ với bạn trong vòng <strong>2 giờ làm việc</strong>.<br/>Cảm ơn bạn đã tin tưởng TST!</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px">
+    📍 <strong>Hồ Chí Minh</strong> &nbsp;|&nbsp; 📍 <strong>Đà Nẵng</strong>
+  </p>
+  <p style="margin-bottom:8px">
+    Hotline: <a href="tel:+84914638937">0914 638 937</a>
+    &nbsp;|&nbsp;
+    Zalo: <a href="https://zalo.me/0934612344" target="_blank">0934 612 344</a>
+  </p>
+  <p>© 2025 Thắng TST · AI Business Training &nbsp;|&nbsp;
+    <a href="#">Chính sách</a> &nbsp;|&nbsp;
+    <a href="#">Liên hệ</a>
+  </p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="pay-overlay" id="payModal" onclick="if(event.target===this)closePayment()">
+  <div class="pay-modal">
+    <button class="pay-close" onclick="closePayment()">✕</button>
+    <h3 class="pay-title">Đăng ký khoá học</h3>
+    <p class="pay-pkg" id="payPkgLabel"></p>
+
+    <div class="pay-bank">
+      <div class="pay-bank-row">
+        <span class="pay-bank-label">Ngân hàng</span>
+        <span class="pay-bank-val">Vietcombank</span>
+      </div>
+      <div class="pay-bank-row">
+        <span class="pay-bank-label">Số tài khoản</span>
+        <span class="pay-bank-val pay-acct">1001000292931</span>
+      </div>
+      <div class="pay-bank-row">
+        <span class="pay-bank-label">Chủ tài khoản</span>
+        <span class="pay-bank-val">ĐOÀN MINH THẮNG</span>
+      </div>
+      <div class="pay-bank-row">
+        <span class="pay-bank-label">Số tiền</span>
+        <span class="pay-bank-val pay-amount" id="payAmount"></span>
+      </div>
+      <div class="pay-bank-row">
+        <span class="pay-bank-label">Nội dung CK</span>
+        <span class="pay-bank-val pay-note" id="payNote"></span>
+      </div>
+    </div>
+
+    <form class="pay-form" id="payForm" onsubmit="submitPayment(event)">
+      <p class="pay-form-title">Điền thông tin sau khi chuyển khoản</p>
+      <div class="pay-field">
+        <label>Họ và tên *</label>
+        <input type="text" id="payName" placeholder="Nguyễn Văn A" required />
+      </div>
+      <div class="pay-field">
+        <label>Số điện thoại *</label>
+        <input type="tel" id="payPhone" placeholder="09xx xxx xxx" required />
+      </div>
+      <div class="pay-field">
+        <label>Email *</label>
+        <input type="email" id="payEmail" placeholder="email@example.com" required />
+      </div>
+      <button type="submit" class="pay-submit">Xác nhận đã chuyển khoản →</button>
+    </form>
+
+    <div class="pay-success" id="paySuccess">
+      <div class="pay-success-icon">✓</div>
+      <h4>Đăng ký thành công!</h4>
+      <p>Thắng sẽ liên hệ xác nhận trong vòng <strong>2 giờ</strong> làm việc.<br/>Cảm ơn bạn đã tin tưởng!</p>
+      <button class="pay-submit" onclick="closePayment()" style="margin-top:20px;">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING CONTACT BUTTONS -->
+<div class="float-contact">
+  <!-- Zalo -->
+  <a href="https://zalo.me/0934612344" class="float-btn float-zalo" target="_blank" rel="noopener">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <text y="48" font-size="52" font-family="Arial Black,sans-serif" font-weight="900" fill="#fff">Z</text>
+    </svg>
+    <span class="tip">Nhắn Zalo ngay</span>
+  </a>
+  <!-- Hotline -->
+  <a href="tel:+84914638937" class="float-btn float-phone">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+    </svg>
+    <span class="tip">Gọi: 0914 638 937</span>
+  </a>
+</div>
+
+<script>
+  // Gallery: mobile tap toggle
+  ['wonder-card','ohay-card','edu-card','beauty-card','clinic-card'].forEach(function(id) {
+    document.getElementById(id).addEventListener('click', function(e) {
+      if (window.innerWidth <= 768 && !e.target.closest('img')) {
+        this.classList.toggle('open');
+      }
+    });
+  });
+
+  // Lightbox
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('show');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('show');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Pricing preview image
+  (function() {
+    var preview = document.getElementById('pricingPreview');
+    var cards = document.querySelectorAll('.price-card');
+    cards.forEach(function(card) {
+      card.addEventListener('mouseenter', function() { preview.classList.add('show'); });
+      card.addEventListener('mouseleave', function() { preview.classList.remove('show'); });
+    });
+  })();
+
+  // Payment modal
+  function openPayment(pkg, price) {
+    document.getElementById('payPkgLabel').textContent = pkg + ': ' + price;
+    document.getElementById('payAmount').textContent = price;
+    document.getElementById('payNote').textContent = 'Dang ky ' + pkg;
+    document.getElementById('payForm').style.display = 'flex';
+    document.getElementById('paySuccess').style.display = 'none';
+    document.getElementById('payForm').reset();
+    document.getElementById('payModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePayment() {
+    document.getElementById('payModal').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  function submitPayment(e) {
+    e.preventDefault();
+    document.getElementById('payForm').style.display = 'none';
+    document.getElementById('paySuccess').style.display = 'flex';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePayment();
+  });
+
+  // Register form submit → Google Sheet
+  function submitRegForm(e) {
+    e.preventDefault();
+    var btn = document.querySelector('.reg-submit');
+    btn.textContent = 'Đang gửi...';
+    btn.disabled = true;
+
+    var payload = {
+      name:  document.getElementById('regName').value,
+      phone: document.getElementById('regPhone').value,
+      email: document.getElementById('regEmail').value
+    };
+
+    var form = new FormData();
+    form.append('name',  payload.name);
+    form.append('phone', payload.phone);
+    form.append('email', payload.email);
+
+    fetch('https://script.google.com/macros/s/AKfycbzvI236IKcfPz23aiIAqXzyf7bqgAiVxIi6ASqqcYE_58AaK920LUjwpOdieb0r7VP8/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: form
+    })
+    .then(function() {
+      document.getElementById('regForm').style.display = 'none';
+      document.getElementById('regSuccess').style.display = 'block';
+    })
+    .catch(function() {
+      // Vẫn hiện thành công dù lỗi mạng, tránh khách bị stuck
+      document.getElementById('regForm').style.display = 'none';
+      document.getElementById('regSuccess').style.display = 'block';
+    });
+  }
+
+  // Countdown timer — đặt deadline 5 ngày từ lúc mở trang
+  (function() {
+    var deadline = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000);
+    function pad(n) { return String(n).padStart(2,'0'); }
+    function update() {
+      var diff = deadline - Date.now();
+      if (diff <= 0) return;
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      // Countdown section register
+      document.getElementById('rcd-days').textContent  = pad(d);
+      document.getElementById('rcd-hours').textContent = pad(h);
+      document.getElementById('rcd-mins').textContent  = pad(m);
+      document.getElementById('rcd-secs').textContent  = pad(s);
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thắng TST là ai? | Marketing Strategist & AI Practitioner</title>
+  <meta name="description" content="Thắng TST — 10 năm marketing thực chiến, sáng lập TST Marketing, người đã ứng dụng AI vận hành cho hàng trăm doanh nghiệp." />
+  <meta property="og:title" content="Thắng TST là ai? | Marketing Strategist & AI Practitioner" />
+  <meta property="og:description" content="10 năm marketing thực chiến, 100+ doanh nghiệp, sáng lập TST Marketing. Người ứng dụng AI vào vận hành thực tế mỗi ngày." />
+  <meta property="og:image" content="https://hocaicungthang.vn/raw/111.png" />
+  <meta property="og:url" content="https://hocaicungthang.vn/thang-tst.html" />
+  <meta property="og:type" content="profile" />
+  <style>
+    :root {
+      --primary: #f97316;
+      --dark: #080808;
+      --dark2: #0f0f0f;
+      --dark3: #141414;
+      --text: #ffffff;
+      --muted: #9a9a9a;
+      --border: rgba(249,115,22,0.22);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo-name { font-size: 1.1rem; font-weight: 900; color: #fff; text-decoration: none; }
+    .logo-name span { color: var(--primary); }
+    .header-cta {
+      background: var(--primary);
+      color: #fff; font-weight: 700;
+      padding: 8px 20px; border-radius: 8px;
+      text-decoration: none; font-size: 0.9rem;
+      transition: opacity .2s;
+    }
+    .header-cta:hover { opacity: 0.85; }
+
+    /* HERO BIO */
+    .bio-hero {
+      background: linear-gradient(135deg, #0f0804 0%, #1a0e06 50%, #0a0604 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 56px;
+    }
+    .bio-hero-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; gap: 48px; align-items: center;
+    }
+    .bio-avatar {
+      width: 200px; height: 200px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      object-fit: cover;
+      box-shadow: 0 0 40px rgba(249,115,22,0.3);
+    }
+    .bio-hero-text .tag {
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 2px;
+      color: var(--primary); text-transform: uppercase; margin-bottom: 12px;
+    }
+    .bio-hero-text h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.2; margin-bottom: 10px;
+    }
+    .bio-hero-text h1 em { color: var(--primary); font-style: normal; }
+    .bio-hero-text .subtitle {
+      font-size: 1.05rem; color: var(--muted); margin-bottom: 20px;
+    }
+    .bio-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .bio-tag {
+      background: rgba(249,115,22,0.12);
+      border: 1px solid var(--border);
+      color: #fff; font-size: 0.85rem;
+      padding: 5px 14px; border-radius: 20px;
+    }
+    .bio-socials { display: flex; gap: 12px; }
+    .bio-social {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .bio-social:hover { opacity: 0.85; }
+    .bio-social.fb { background: #1877f2; color: #fff; }
+    .bio-social.zalo { background: #0068ff; color: #fff; }
+
+    /* STATS */
+    .bio-stats {
+      background: var(--dark2);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+    .bio-stats-inner {
+      max-width: 860px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; text-align: center;
+    }
+    .bstat-num { font-size: 2.2rem; font-weight: 900; color: var(--primary); }
+    .bstat-label { font-size: 0.9rem; color: var(--muted); margin-top: 4px; }
+
+    /* ARTICLE */
+    .article {
+      max-width: 860px; margin: 0 auto;
+      padding: 56px 24px;
+    }
+    .article h2 {
+      font-size: 1.6rem; font-weight: 900;
+      margin: 48px 0 16px;
+      padding-left: 16px;
+      border-left: 4px solid var(--primary);
+    }
+    .article h2:first-child { margin-top: 0; }
+    .article p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.82);
+      margin-bottom: 16px; line-height: 1.8;
+    }
+    .article strong { color: #fff; }
+    .article ul {
+      list-style: none; margin: 0 0 24px; padding: 0;
+    }
+    .article ul li {
+      padding: 10px 0 10px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      position: relative;
+    }
+    .article ul li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--primary); font-weight: 700;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(234,88,12,0.04));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .highlight-box p {
+      font-size: 1.15rem; font-style: italic;
+      color: rgba(255,255,255,0.9);
+      margin: 0;
+      line-height: 1.8;
+    }
+    .highlight-box cite {
+      display: block; margin-top: 12px;
+      font-size: 0.9rem; color: var(--primary);
+      font-style: normal; font-weight: 700;
+    }
+
+    /* CLIENT BADGES */
+    .client-badges {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      margin: 20px 0 32px;
+    }
+    .client-badge {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+    }
+    .client-badge span { color: var(--primary); font-weight: 700; }
+
+    /* COURSE CTA */
+    .course-cta {
+      background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(234,88,12,0.05));
+      border: 1px solid rgba(249,115,22,0.4);
+      border-radius: 20px;
+      padding: 40px 36px;
+      margin: 48px 0 0;
+      text-align: center;
+    }
+    .course-cta h3 {
+      font-size: 1.6rem; font-weight: 900; margin-bottom: 12px;
+    }
+    .course-cta h3 em { color: var(--primary); font-style: normal; }
+    .course-cta p {
+      color: var(--muted); margin-bottom: 28px; font-size: 1rem;
+    }
+    @keyframes btn-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.7), 0 4px 20px rgba(249,115,22,0.4); transform: scale(1); }
+      50% { box-shadow: 0 0 0 10px rgba(249,115,22,0), 0 4px 30px rgba(249,115,22,0.6); transform: scale(1.03); }
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff; font-weight: 800;
+      font-size: 1.1rem;
+      padding: 14px 40px; border-radius: 12px;
+      text-decoration: none;
+      animation: btn-pulse 2s ease-in-out infinite;
+    }
+    .cta-btn:hover { opacity: 0.9; transform: scale(1.05); }
+
+    /* STICKY CTA */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(249,115,22,0.35);
+      padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      transform: translateY(100%);
+      transition: transform .4s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta-text { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.4; }
+    .sticky-cta-text strong { color: #fff; display: block; }
+    .sticky-cta-btn {
+      background: var(--primary);
+      color: #fff; font-weight: 800;
+      font-size: 0.95rem;
+      padding: 10px 22px; border-radius: 10px;
+      text-decoration: none; white-space: nowrap;
+      animation: btn-pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    /* PHOTO LAYOUTS */
+    .photo-stage {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .photo-stage img, .photo-grid img, .photo-tv img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .photo-stage-main img { height: 340px; }
+    .photo-stage-side img { height: 340px; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 0 0 32px;
+    }
+    .photo-grid img { height: 220px; }
+
+    .team-photo {
+      width: 100%; border-radius: 14px;
+      margin: 16px 0 32px;
+      object-fit: cover; height: 340px;
+      object-position: center;
+    }
+    @media (max-width: 640px) {
+      .team-photo { height: 220px; }
+    }
+
+    .photo-tv {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0 32px;
+    }
+    .photo-tv img { height: 380px; object-position: center; }
+
+    @media (max-width: 640px) {
+      .photo-stage { grid-template-columns: 1fr; }
+      .photo-stage-main img, .photo-stage-side img { height: 220px; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .photo-grid img { height: 140px; }
+      .photo-tv { grid-template-columns: 1fr; }
+      .photo-tv img { height: 280px; }
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.9rem;
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .bio-hero-inner { flex-direction: column; text-align: center; gap: 28px; }
+      .bio-tags { justify-content: center; }
+      .bio-socials { justify-content: center; }
+      .bio-avatar { width: 150px; height: 150px; }
+      .bio-stats-inner { grid-template-columns: 1fr; gap: 20px; }
+      .article h2 { font-size: 1.3rem; }
+      .course-cta { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text">
+    <strong>Khoá học AI Claude của Thắng TST</strong>
+    Thực chiến · Áp dụng ngay từ ngày 1
+  </div>
+  <a href="https://hocaicungthang.vn#pricing" class="sticky-cta-btn">Xem khoá học →</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="https://hocaicungthang.vn" class="logo-name">Hoc AI <span>Cung Thang</span></a>
+  <a href="https://hocaicungthang.vn#pricing" class="header-cta">Xem khoá học →</a>
+</header>
+
+<!-- HERO BIO -->
+<section class="bio-hero">
+  <div class="bio-hero-inner">
+    <img src="raw/z7811611094638_bbccca556c08c286322e06b8b152a584.jpg" alt="Thắng TST" class="bio-avatar" />
+    <div class="bio-hero-text">
+      <p class="tag">Chuyên gia Marketing & AI</p>
+      <h1>Thắng TST là <em>ai?</em></h1>
+      <p class="subtitle">Marketing Strategist & AI Practitioner · Sáng lập TST Marketing</p>
+      <div class="bio-tags">
+        <span class="bio-tag">10 năm Marketing</span>
+        <span class="bio-tag">100+ Doanh nghiệp</span>
+        <span class="bio-tag">AI Practitioner</span>
+        <span class="bio-tag">Claude Code</span>
+        <span class="bio-tag">Obsidian</span>
+      </div>
+      <div class="bio-socials">
+        <a href="https://www.facebook.com/thang.doan.7" class="bio-social fb" target="_blank">📘 Facebook</a>
+        <a href="https://zalo.me/0934612344" class="bio-social zalo" target="_blank">💬 Zalo</a>
+      </div>
+      <a href="https://hocaicungthang.vn#pricing" class="cta-btn" style="margin-top:18px; display:inline-block; font-size:1rem; padding:12px 28px;">🎯 Xem khoá học của Thắng →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="bio-stats">
+  <div class="bio-stats-inner">
+    <div>
+      <div class="bstat-num">10+</div>
+      <div class="bstat-label">Năm marketing thực chiến</div>
+    </div>
+    <div>
+      <div class="bstat-num">100.000+</div>
+      <div class="bstat-label">Thành viên cộng đồng</div>
+    </div>
+    <div>
+      <div class="bstat-num">100+</div>
+      <div class="bstat-label">Sự kiện đã tổ chức</div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <h2>Thắng TST là ai?</h2>
+  <p>
+    <strong>Đoàn Minh Thắng</strong>, hay còn được biết đến với tên <strong>Thắng TST</strong>, là một
+    Marketing Strategist với hơn <strong>10 năm kinh nghiệm thực chiến</strong> trong lĩnh vực marketing,
+    truyền thông và vận hành doanh nghiệp. Anh là người sáng lập <strong>TST Marketing</strong>,
+    agency đã đồng hành cùng hàng trăm doanh nghiệp từ startup đến tập đoàn vốn hoá hàng trăm tỷ đồng.
+  </p>
+  <p>
+    Điều khiến Thắng khác biệt không phải là bằng cấp hay lý thuyết, mà là anh luôn là người
+    <strong>làm trước, ứng dụng trước</strong>, rồi mới chia sẻ lại những gì thực sự hoạt động.
+  </p>
+
+  <div class="highlight-box">
+    <p>"Tôi không dạy lý thuyết. Tôi dạy những gì tôi đang làm mỗi ngày để vận hành agency bằng AI."</p>
+    <cite>Thắng TST</cite>
+  </div>
+
+  <h2>Hành trình 10 năm marketing thực chiến</h2>
+  <p>
+    Từ những ngày đầu khởi nghiệp, Thắng đã trực tiếp lăn lộn với bài toán marketing cho doanh nghiệp
+    Việt Nam, từ xây dựng thương hiệu, vận hành quảng cáo, quản lý nội dung đến tối ưu chuyển đổi.
+  </p>
+  <p>
+    Sau <strong>10 năm vận hành TST Marketing</strong>, anh đã tích luỹ đủ trải nghiệm thực tế để
+    hiểu rõ: <strong>phần lớn công việc lặp đi lặp lại trong marketing có thể được AI xử lý</strong>
+    nếu bạn biết cách thiết lập đúng hệ thống.
+  </p>
+  <img src="raw/100.jpg" alt="Đội ngũ TST Marketing" class="team-photo" />
+
+  <h2>Ứng dụng AI vào thực tế</h2>
+  <p>
+    Thắng là một trong những người <strong>tiên phong ứng dụng AI vào vận hành doanh nghiệp</strong> tại Việt Nam ngay từ những ngày đầu các công cụ này xuất hiện trên thị trường. Từ <strong>ChatGPT, Gemini</strong> đến <strong>Claude AI, Claude Code</strong>, kết hợp cùng <strong>Obsidian</strong> như một "bộ não thứ hai", anh liên tục thử nghiệm và tối ưu để tìm ra hệ thống làm việc hiệu quả nhất cho agency marketing. Kết quả:
+  </p>
+  <ul>
+    <li>Tự động hoá phần lớn quy trình sản xuất nội dung</li>
+    <li>Phân tích data khách hàng và đưa ra chiến lược nhanh hơn</li>
+    <li>Vận hành nhiều dự án song song mà không cần tăng nhân sự</li>
+    <li>Rút ngắn thời gian xử lý công việc từ giờ xuống còn phút</li>
+  </ul>
+
+  <h2>Những doanh nghiệp đã đồng hành</h2>
+  <p>Thắng và TST Marketing đã đồng hành cùng nhiều doanh nghiệp từ các lĩnh vực khác nhau:</p>
+  <div class="client-badges">
+    <div class="client-badge">🍕 <span>ÔHay Bar & Pizza Lò</span>: Chuỗi F&B lớn nhất Đà Nẵng</div>
+    <div class="client-badge">💪 <span>Wonder Fitness Group</span>: Tập đoàn thể thao 10 chi nhánh miền Trung</div>
+    <div class="client-badge">🏥 <span>Hàng trăm phòng khám</span>: Trên toàn quốc</div>
+    <div class="client-badge">🎓 <span>Trung tâm ngoại ngữ & kỹ năng</span>: Chuỗi giáo dục đào tạo</div>
+    <div class="client-badge">🏠 <span>Bất động sản & Xây dựng</span>: Dự án vốn hoá 100 tỷ+</div>
+    <div class="client-badge">💄 <span>Mỹ phẩm & Làm đẹp</span>: Thương hiệu nội địa và phân phối quốc tế</div>
+    <div class="client-badge">🏠 <span>Hàng gia dụng</span>: Nhãn hàng gia dụng tiêu dùng phổ thông</div>
+    <div class="client-badge">📺 <span>Showroom điện máy & Điện tử</span>: Hệ thống phân phối đa tỉnh thành</div>
+  </div>
+
+  <h2>Sáng lập & Điều hành Cộng đồng 100.000+ thành viên</h2>
+  <p>
+    Ngoài vai trò doanh nhân, Thắng còn là <strong>người sáng lập và điều hành một cộng đồng hơn 100.000 thành viên</strong> trải rộng khắp cả nước. Anh đã trực tiếp tổ chức hàng trăm sự kiện kết nối, việc làm, giao lưu và thiện nguyện với quy mô từ vài trăm đến hàng nghìn người tham dự.
+  </p>
+
+  <!-- Ảnh sân khấu -->
+  <div class="photo-stage">
+    <div class="photo-stage-main">
+      <img src="raw/t3.jpg" alt="Thắng TST phát biểu trên sân khấu sự kiện 500+ khách" />
+    </div>
+    <div class="photo-stage-side">
+      <img src="raw/t4.jpg" alt="Thắng TST tại sự kiện cộng đồng" />
+    </div>
+  </div>
+
+  <!-- Grid sự kiện -->
+  <div class="photo-grid">
+    <img src="raw/t1.jpg" alt="Sự kiện cộng đồng" />
+    <img src="raw/t2.jpg" alt="Offline cộng đồng" />
+    <img src="raw/t5.jpg" alt="Sự kiện hàng nghìn người" />
+    <img src="raw/t6.jpg" alt="Đại tiệc Xuyên Việt" />
+  </div>
+
+  <h2>Diễn giả trên truyền hình</h2>
+  <p>
+    Với câu chuyện khởi nghiệp và hành trình xây dựng cộng đồng ấn tượng, Thắng đã được <strong>nhiều kênh truyền hình mời lên sóng</strong> với vai trò diễn giả và khách mời đặc biệt.
+  </p>
+
+  <!-- Ảnh truyền hình -->
+  <div class="photo-tv">
+    <img src="raw/t7.jpg" alt="Thắng TST trên truyền hình Khoảnh Khắc Cuộc Đời" />
+    <img src="raw/t8.jpg" alt="Thắng TST xuất hiện trên truyền hình" />
+  </div>
+
+  <h2>Vì sao Thắng bắt đầu dạy AI?</h2>
+  <p>
+    Sau khi tự mình ứng dụng thành công AI vào vận hành agency, Thắng nhận ra rằng
+    <strong>hầu hết doanh nghiệp Việt đang bỏ lỡ một công cụ cực kỳ mạnh mẽ</strong>,
+    không phải vì họ không muốn dùng, mà vì không có ai chỉ tận tay cách ứng dụng đúng.
+  </p>
+
+  <div class="highlight-box">
+    <p>"Lộ trình này là bản đúc rút của cả quá trình thử, sai, tối ưu. Tôi cô đọng lại để bạn đi nhanh hơn tôi đã từng."</p>
+    <cite>Thắng TST</cite>
+  </div>
+
+  <h2>Thông tin liên hệ</h2>
+  <ul>
+    <li>Facebook: <a href="https://www.facebook.com/thang.doan.7" target="_blank" style="color:var(--primary)">facebook.com/thang.doan.7</a></li>
+    <li>Zalo: <a href="https://zalo.me/0934612344" style="color:var(--primary)">0934612344</a></li>
+    <li>Website khoá học: <a href="https://hocaicungthang.vn" style="color:var(--primary)">hocaicungthang.vn</a></li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="course-cta">
+    <h3>Học AI cùng <em>Thắng TST</em></h3>
+    <p>Khoá học thực chiến, áp dụng được ngay từ ngày 1, không cần biết lập trình.</p>
+    <a href="https://hocaicungthang.vn" class="cta-btn">Xem khoá học ngay →</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Thắng TST | <a href="https://hocaicungthang.vn">hocaicungthang.vn</a></p>
+</footer>
+
+<script>
+  var sticky = document.getElementById('stickyCta');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+      sticky.classList.add('show');
+    } else {
+      sticky.classList.remove('show');
+    }
+  });
+</script>
+</body>
+</html>
