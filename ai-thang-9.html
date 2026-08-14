@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lớp Đào Tạo AI Tháng 9 · Zoom Tập Thể | Thắng TST</title>
+  <meta name="description" content="Lớp Đào Tạo AI Tháng 9 qua Zoom tập thể. 4 session thực chiến trong 3 buổi: AI edit video, phân tích ngách, viết quy trình bán hàng, phân tích chỉ số quảng cáo. Chỉ 989.000đ thay vì 3.690.000đ." />
+  <meta property="og:title" content="Lớp Đào Tạo AI Tháng 9 · Zoom Tập Thể | Thắng TST" />
+  <meta property="og:description" content="4 session thực chiến trong 3 buổi. Chỉ 989.000đ thay vì 3.690.000đ. 1 lớp duy nhất trong tháng 9." />
+  <meta property="og:image" content="https://hocaicungthang.vn/raw/ai-t9.png" />
+  <meta property="og:url" content="https://hocaicungthang.vn/ai-thang-9.html" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --primary: #f97316;
+      --primary-dark: #ea6c0a;
+      --accent: #f97316;
+      --dark: #080808;
+      --dark2: #0f0f0f;
+      --dark3: #141414;
+      --text: #ffffff;
+      --muted: #9a9a9a;
+      --border: rgba(249,115,22,0.22);
+      --card-bg: rgba(249,115,22,0.07);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden;
+    }
+    a { color: inherit; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 12px 24px;
+      background: rgba(12,8,4,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 8px; }
+    .logo-name { font-weight: 900; font-size: 1.15rem; color: #fff; }
+    .logo-x { font-size: 1rem; color: var(--accent); font-weight: 700; }
+    .logo-img { height: 34px; width: auto; background: #fff; border-radius: 6px; padding: 3px 8px; }
+    .back-home { text-decoration: none; font-weight: 700; font-size: .88rem; color: rgba(255,255,255,0.85); }
+    .back-home:hover { color: #fff; }
+    @media (max-width: 480px) { .logo-img { height: 26px; } .logo-name { font-size: 1rem; } }
+
+    section { padding: 64px 22px; }
+    .container { max-width: 980px; margin: 0 auto; }
+
+    /* HERO */
+    .hero {
+      padding: 110px 22px 60px;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% -10%, rgba(249,115,22,0.22) 0%, transparent 60%),
+        linear-gradient(160deg, #140c05 0%, #0c0703 100%);
+      text-align: center;
+    }
+    .flag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff; font-size: .92rem; font-weight: 800;
+      padding: 8px 20px; border-radius: 50px; margin-bottom: 22px;
+      box-shadow: 0 0 26px rgba(249,115,22,0.45);
+    }
+    .hero h1 { font-size: clamp(2rem, 5.4vw, 3.4rem); font-weight: 900; line-height: 1.14; margin-bottom: 16px; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero .lead { font-size: 1.2rem; color: rgba(255,255,255,0.78); max-width: 640px; margin: 0 auto 30px; }
+    .hero-img {
+      width: 100%; max-width: 720px; margin: 0 auto 30px;
+      border-radius: 20px; display: block;
+      box-shadow: 0 18px 60px rgba(249,115,22,0.22);
+      border: 1px solid rgba(249,115,22,0.30);
+    }
+    .price-row {
+      display: inline-flex; align-items: baseline; gap: 16px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 8px;
+    }
+    .price-old { font-size: 1.3rem; color: var(--muted); text-decoration: line-through; }
+    .price-new { font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; }
+    .save {
+      font-size: .82rem; font-weight: 800; color: #86efac;
+      background: rgba(74,222,128,0.15); border: 1px solid rgba(74,222,128,0.45);
+      padding: 4px 12px; border-radius: 50px;
+    }
+    .price-note { font-size: .95rem; color: var(--muted); margin-bottom: 26px; }
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff; padding: 16px 40px; border-radius: 50px;
+      text-decoration: none; font-weight: 800; font-size: 1.1rem;
+      box-shadow: 0 0 30px rgba(249,115,22,0.5);
+      animation: pulse-orange 2s ease-in-out infinite;
+    }
+    @keyframes pulse-orange {
+      0%,100% { box-shadow: 0 0 30px rgba(249,115,22,0.5); transform: scale(1); }
+      50%      { box-shadow: 0 0 55px rgba(249,115,22,0.9); transform: scale(1.03); }
+    }
+    .btn-primary:hover { animation: none; transform: translateY(-2px); }
+
+    .section-tag { font-size: .78rem; font-weight: 700; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; text-align: center; }
+    .section-title { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.2; margin-bottom: 14px; text-align: center; }
+    .section-title em { color: var(--accent); font-style: normal; }
+    .section-sub { color: rgba(255,255,255,0.68); max-width: 600px; margin: 0 auto 44px; font-size: 1.12rem; text-align: center; }
+
+    /* SESSIONS */
+    .sessions { background: linear-gradient(160deg, #1a0f06 0%, #100a04 100%); }
+    .session-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+    .session-card {
+      background: linear-gradient(145deg, rgba(249,115,22,0.10), rgba(234,88,12,0.03));
+      border: 1px solid rgba(249,115,22,0.24); border-radius: 16px; padding: 26px;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .session-card:hover { transform: translateY(-4px); border-color: rgba(249,115,22,0.6); box-shadow: 0 10px 30px rgba(249,115,22,0.14); }
+    .session-num { font-size: .82rem; font-weight: 700; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; }
+    .session-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .session-card h4 { font-size: 1.22rem; font-weight: 800; margin-bottom: 8px; }
+    .session-card p { font-size: .98rem; color: rgba(255,255,255,0.66); line-height: 1.6; }
+
+    /* GALLERY (2 ảnh lớp Zoom thực tế) */
+    .gallery { background: var(--dark); }
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .gallery-grid figure {
+      border-radius: 18px; overflow: hidden; border: 1px solid rgba(249,115,22,0.25);
+      background: var(--dark2);
+    }
+    .gallery-grid img { width: 100%; height: 340px; object-fit: cover; display: block; transition: transform .4s ease; }
+    .gallery-grid figure:hover img { transform: scale(1.05); }
+    .gallery-grid figcaption { padding: 14px 18px; font-size: .95rem; color: rgba(255,255,255,0.72); font-weight: 600; }
+    @media (max-width: 680px) { .gallery-grid { grid-template-columns: 1fr; } .gallery-grid img { height: 260px; } }
+
+    /* INFO STRIP */
+    .info { background: linear-gradient(160deg, #100a04 0%, #1a0e06 100%); }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+    .info-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px; text-align: center;
+    }
+    .info-card .big { font-size: 1.7rem; font-weight: 900; color: var(--accent); }
+    .info-card .lbl { font-size: .92rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+    /* REGISTER */
+    .register {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249,115,22,0.20) 0%, transparent 65%),
+        linear-gradient(160deg, #0d0600 0%, #120800 100%);
+      border-top: 1px solid rgba(249,115,22,0.25);
+    }
+    .register-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; max-width: 900px; margin: 0 auto; }
+    .reg-left h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); font-weight: 900; line-height: 1.2; margin-bottom: 14px; }
+    .reg-left h2 em { color: var(--accent); font-style: normal; }
+    .reg-left p { font-size: 1.1rem; color: rgba(255,255,255,0.72); margin-bottom: 22px; }
+    .pay-box { background: rgba(249,115,22,0.07); border: 1px solid rgba(249,115,22,0.22); border-radius: 14px; padding: 20px; }
+    .pay-box-title { font-size: .76rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .pay-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: .96rem; }
+    .pay-row:last-child { margin-bottom: 0; }
+    .pay-lbl { color: var(--muted); }
+    .pay-val { font-weight: 800; color: #fff; }
+    .pay-val.acct { color: var(--accent); letter-spacing: 1px; }
+    .pay-val.amount { color: var(--accent); }
+
+    .reg-card {
+      background: rgba(249,115,22,0.06); border: 1.5px solid rgba(249,115,22,0.28);
+      border-radius: 22px; padding: 34px 30px; box-shadow: 0 0 60px rgba(249,115,22,0.10);
+    }
+    .reg-card h3 { font-size: 1.4rem; font-weight: 900; margin-bottom: 6px; }
+    .reg-card .reg-sub { font-size: 1rem; color: var(--muted); margin-bottom: 22px; }
+    .reg-field { margin-bottom: 16px; }
+    .reg-field label { display: block; font-size: .92rem; font-weight: 700; color: rgba(255,255,255,0.65); margin-bottom: 7px; }
+    .reg-field input {
+      width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 10px; padding: 13px 16px; color: #fff; font-size: 1.05rem; outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .reg-field input:focus { border-color: var(--accent); background: rgba(249,115,22,0.08); }
+    .reg-field input::placeholder { color: rgba(255,255,255,0.28); }
+    .reg-submit {
+      width: 100%; margin-top: 8px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff; font-size: 1.15rem; font-weight: 900; padding: 16px; border-radius: 50px;
+      border: none; cursor: pointer; box-shadow: 0 0 28px rgba(249,115,22,0.45);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .reg-submit:hover { box-shadow: 0 0 50px rgba(249,115,22,0.7); transform: translateY(-2px); }
+    .reg-note { font-size: .88rem; color: var(--muted); text-align: center; margin-top: 12px; }
+    .reg-success { display: none; text-align: center; padding: 20px 0; }
+    .reg-success-icon { font-size: 3rem; margin-bottom: 12px; }
+    .reg-success h4 { font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; }
+    .reg-success p { color: var(--muted); font-size: 1.08rem; line-height: 1.7; }
+    @media (max-width: 768px) { .register-wrap { grid-template-columns: 1fr; gap: 30px; } .reg-card { padding: 28px 22px; } }
+
+    footer {
+      background: #08050f; border-top: 1px solid var(--border);
+      padding: 26px 24px; text-align: center; font-size: .82rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    /* FLOATING CONTACT */
+    .float-contact { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 14px; z-index: 9999; }
+    .float-btn { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
+    .float-zalo { background: #0068FF; }
+    .float-phone { background: #22c55e; }
+    .float-btn svg { width: 28px; height: 28px; fill: #fff; }
+    @media (max-width: 768px) { .float-contact { right: 14px; bottom: 22px; top: auto; transform: none; } .float-btn { width: 50px; height: 50px; } }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo" style="text-decoration:none;">
+    <span class="logo-name">Thắng</span>
+    <span class="logo-x">×</span>
+    <img src="raw/LOGO TST Marketing Agency - 2-04.png" alt="TST Agency" class="logo-img"/>
+  </a>
+  <a href="index.html" class="back-home">← Về trang chủ</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="flag">🔥 Chỉ 1 lớp duy nhất trong tháng 9</span>
+    <h1>Lớp Đào Tạo <em>AI Tháng 9</em><br/>Zoom Tập Thể</h1>
+    <p class="lead">4 session thực chiến, gói gọn trong 3 buổi học trực tiếp qua Zoom. Học tới đâu làm được tới đó, mang về áp dụng ngay cho công việc.</p>
+    <img src="raw/ai-t9.png" alt="Lớp Đào Tạo AI Tháng 9 - Zoom Tập Thể" class="hero-img"/>
+    <div class="price-row">
+      <span class="price-old">3.690.000đ</span>
+      <span class="price-new">989.000đ</span>
+      <span class="save">Tiết kiệm 2,7tr</span>
+    </div>
+    <p class="price-note">/ học viên · Ưu đãi chỉ áp dụng cho lớp tháng 9</p>
+    <div><a href="#dang-ky" class="btn-primary">👉 Giữ chỗ ngay với 989K →</a></div>
+  </div>
+</section>
+
+<!-- 4 SESSIONS -->
+<section class="sessions">
+  <div class="container">
+    <p class="section-tag">Nội dung khoá học</p>
+    <h2 class="section-title">4 Session <em>thực chiến</em> trong 3 buổi</h2>
+    <p class="section-sub">Mỗi session là một kỹ năng AI ra tiền, dùng được ngay cho kinh doanh và marketing.</p>
+    <div class="session-grid">
+      <div class="session-card">
+        <div class="session-num">Session 01</div>
+        <div class="session-icon">🎬</div>
+        <h4>AI Edit Video</h4>
+        <p>Dùng AI dựng, cắt ghép, lồng phụ đề video nhanh gấp nhiều lần, sản xuất nội dung đều tay mà không cần đội ngũ lớn.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-num">Session 02</div>
+        <div class="session-icon">🔍</div>
+        <h4>AI Phân Tích Ngách</h4>
+        <p>Để AI đọc thị trường, tìm ngách còn trống, chân dung khách hàng và cơ hội để bạn chen vào bán đúng thứ khách cần.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-num">Session 03</div>
+        <div class="session-icon">📝</div>
+        <h4>AI Viết Quy Trình Bán Hàng</h4>
+        <p>Xây kịch bản, quy trình chốt sale chuẩn bằng AI, chuẩn hoá cách bán để ai trong team cũng bán được như nhau.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-num">Session 04</div>
+        <div class="session-icon">📈</div>
+        <h4>AI Phân Tích Chỉ Số Quảng Cáo</h4>
+        <p>Đưa số liệu quảng cáo cho AI đọc, chỉ ra chỗ đang đốt tiền, chỗ cần tối ưu, ra quyết định tăng giảm ngân sách đúng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY: LỚP ZOOM THỰC TẾ -->
+<section class="gallery">
+  <div class="container">
+    <p class="section-tag">Không khí lớp học</p>
+    <h2 class="section-title">Lớp Zoom tập thể <em>thực tế</em></h2>
+    <p class="section-sub">Học trực tiếp cùng Thắng và cộng đồng học viên, hỏi đáp ngay trong buổi, không phải xem video một mình.</p>
+    <div class="gallery-grid">
+      <figure>
+        <img src="raw/ai-t9-1.jpg" alt="Lớp học AI qua Zoom tập thể" loading="lazy"/>
+        <figcaption>📚 Buổi học Zoom tập thể đông đảo học viên khắp cả nước</figcaption>
+      </figure>
+      <figure>
+        <img src="raw/ai-t9-2.jpg" alt="Thắng TST giảng lớp AI qua Zoom" loading="lazy"/>
+        <figcaption>🎥 Thắng TST giảng trực tiếp, cầm tay chỉ việc từng bước</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section class="info">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-card"><div class="big">4</div><div class="lbl">Session thực chiến</div></div>
+      <div class="info-card"><div class="big">3 buổi</div><div class="lbl">Học qua Zoom tập thể</div></div>
+      <div class="info-card"><div class="big">989K</div><div class="lbl">Thay vì 3.690.000đ</div></div>
+      <div class="info-card"><div class="big">1 lớp</div><div class="lbl">Duy nhất trong tháng 9</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="register" id="dang-ky">
+  <div class="register-wrap">
+    <div class="reg-left">
+      <h2>Giữ chỗ lớp AI tháng 9<br/><em>chỉ với 989K</em></h2>
+      <p>Lớp chỉ mở 1 lần trong tháng 9, số lượng có hạn để đảm bảo chất lượng hỏi đáp. Để lại thông tin, Thắng sẽ liên hệ xác nhận và hướng dẫn thanh toán trong vòng 2 giờ làm việc.</p>
+      <div class="pay-box">
+        <div class="pay-box-title">Thông tin chuyển khoản giữ chỗ</div>
+        <div class="pay-row"><span class="pay-lbl">Ngân hàng</span><span class="pay-val">Vietcombank</span></div>
+        <div class="pay-row"><span class="pay-lbl">Số tài khoản</span><span class="pay-val acct">1001000292931</span></div>
+        <div class="pay-row"><span class="pay-lbl">Chủ tài khoản</span><span class="pay-val">ĐOÀN MINH THẮNG</span></div>
+        <div class="pay-row"><span class="pay-lbl">Số tiền</span><span class="pay-val amount">989.000đ</span></div>
+        <div class="pay-row"><span class="pay-lbl">Nội dung CK</span><span class="pay-val">Lop AI thang 9 + SĐT</span></div>
+      </div>
+    </div>
+
+    <div class="reg-card">
+      <h3>📋 Đăng ký giữ chỗ</h3>
+      <p class="reg-sub">Miễn phí để lại thông tin · Tư vấn 1:1 tận tâm</p>
+      <form id="regForm" onsubmit="submitRegForm(event)">
+        <div class="reg-field">
+          <label>Họ và tên *</label>
+          <input type="text" id="regName" placeholder="Nguyễn Văn A" required/>
+        </div>
+        <div class="reg-field">
+          <label>Số điện thoại *</label>
+          <input type="tel" id="regPhone" placeholder="09xx xxx xxx" required/>
+        </div>
+        <div class="reg-field">
+          <label>Email *</label>
+          <input type="email" id="regEmail" placeholder="email@example.com" required/>
+        </div>
+        <button type="submit" class="reg-submit">Đăng ký giữ chỗ 989K →</button>
+        <p class="reg-note">🔒 Thông tin của bạn được bảo mật tuyệt đối</p>
+      </form>
+      <div class="reg-success" id="regSuccess">
+        <div class="reg-success-icon">🎉</div>
+        <h4>Đăng ký thành công!</h4>
+        <p>Thắng sẽ liên hệ với bạn trong vòng <strong>2 giờ làm việc</strong> để xác nhận chỗ.<br/>Cảm ơn bạn đã tin tưởng TST!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px">📍 <strong>Hồ Chí Minh</strong> &nbsp;|&nbsp; 📍 <strong>Đà Nẵng</strong></p>
+  <p style="margin-bottom:8px">
+    Hotline: <a href="tel:+84914638937">0914 638 937</a> &nbsp;|&nbsp;
+    Zalo: <a href="https://zalo.me/0934612344" target="_blank" rel="noopener">0934 612 344</a>
+  </p>
+  <p>© 2025 Thắng TST · AI Business Training &nbsp;|&nbsp; <a href="index.html">Về trang chủ</a></p>
+</footer>
+
+<!-- FLOATING CONTACT -->
+<div class="float-contact">
+  <a href="https://zalo.me/0934612344" class="float-btn float-zalo" target="_blank" rel="noopener">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><text y="48" font-size="52" font-family="Arial Black,sans-serif" font-weight="900" fill="#fff">Z</text></svg>
+  </a>
+  <a href="tel:+84914638937" class="float-btn float-phone">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  </a>
+</div>
+
+<script>
+  function submitRegForm(e) {
+    e.preventDefault();
+    var btn = document.querySelector('.reg-submit');
+    btn.textContent = 'Đang gửi...';
+    btn.disabled = true;
+
+    var form = new FormData();
+    form.append('name',  document.getElementById('regName').value);
+    form.append('phone', document.getElementById('regPhone').value);
+    form.append('email', document.getElementById('regEmail').value);
+    form.append('course', 'Lop AI thang 9');
+
+    fetch('https://script.google.com/macros/s/AKfycbzvI236IKcfPz23aiIAqXzyf7bqgAiVxIi6ASqqcYE_58AaK920LUjwpOdieb0r7VP8/exec', {
+      method: 'POST', mode: 'no-cors', body: form
+    })
+    .then(function() {
+      document.getElementById('regForm').style.display = 'none';
+      document.getElementById('regSuccess').style.display = 'block';
+    })
+    .catch(function() {
+      document.getElementById('regForm').style.display = 'none';
+      document.getElementById('regSuccess').style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>

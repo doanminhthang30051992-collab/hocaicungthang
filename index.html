@@ -185,64 +185,37 @@
       animation: urgent-icon 4s ease-in-out infinite;
       font-style: normal;
     }
-    /* ─── T9 CAMPAIGN OFFER (headline) ─── */
-    @keyframes t9-border {
-      0%,100% { box-shadow: 0 0 22px rgba(249,115,22,0.35), inset 0 0 0 1.5px rgba(249,115,22,0.55); }
-      50%      { box-shadow: 0 0 48px rgba(249,115,22,0.75), inset 0 0 0 1.5px rgba(249,115,22,1); }
+    /* ─── T9 KHUNG "HỌC AI SIÊU RẺ" (headline) ─── */
+    @keyframes t9-pulse {
+      0%,100% { box-shadow: 0 0 18px rgba(249,115,22,0.4), 0 0 40px rgba(249,115,22,0.15); border-color: rgba(249,115,22,0.6); }
+      50%      { box-shadow: 0 0 34px rgba(249,115,22,0.85), 0 0 70px rgba(249,115,22,0.35); border-color: rgba(249,115,22,1); }
     }
-    .t9-offer {
-      display: flex; align-items: stretch; text-align: left;
-      width: 100%; max-width: 760px; margin: 0 auto 26px;
-      background: linear-gradient(150deg, #1c1206 0%, #140c04 55%, #1a1006 100%);
-      border-radius: 22px; overflow: hidden;
-      text-decoration: none; color: inherit;
-      animation: t9-border 2.2s ease-in-out infinite;
-      transition: transform .25s;
+    .t9-banner {
+      display: inline-flex; align-items: center; gap: 14px;
+      max-width: 100%; margin: 0 auto 22px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.20), rgba(234,88,12,0.10));
+      border: 1.5px solid rgba(249,115,22,0.6);
+      border-radius: 16px; padding: 12px 22px;
+      text-decoration: none; text-align: left;
+      animation: t9-pulse 2s ease-in-out infinite;
+      transition: transform .2s;
     }
-    .t9-offer:hover { transform: translateY(-3px); }
-    .t9-offer-media { flex: 0 0 40%; position: relative; overflow: hidden; }
-    .t9-offer-media img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform .4s ease;
+    .t9-banner:hover { transform: translateY(-2px); }
+    .t9-banner .t9-b-icon { font-size: 1.9rem; line-height: 1; flex-shrink: 0; }
+    .t9-banner .t9-b-main { font-size: 1.18rem; font-weight: 900; color: #fff; line-height: 1.25; }
+    .t9-banner .t9-b-main u { color: var(--accent); text-decoration: none; }
+    .t9-banner .t9-b-sub { display: block; font-size: .84rem; font-weight: 600; color: rgba(255,255,255,0.72); margin-top: 2px; }
+    .t9-banner .t9-b-arrow {
+      margin-left: 6px; flex-shrink: 0;
+      background: linear-gradient(135deg, #f97316, #ea580c); color: #fff;
+      font-weight: 800; font-size: .9rem; padding: 8px 16px; border-radius: 50px;
+      white-space: nowrap;
     }
-    .t9-offer:hover .t9-offer-media img { transform: scale(1.05); }
-    .t9-offer-body { flex: 1; padding: 22px 26px; display: flex; flex-direction: column; gap: 9px; }
-    .t9-flag {
-      display: inline-block; align-self: flex-start;
-      background: linear-gradient(135deg, #f97316, #ea580c);
-      color: #fff; font-size: .82rem; font-weight: 800;
-      padding: 5px 14px; border-radius: 50px; letter-spacing: .3px;
-    }
-    .t9-title { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 900; line-height: 1.15; }
-    .t9-title em { color: var(--accent); font-style: normal; }
-    .t9-desc { font-size: .96rem; color: rgba(255,255,255,0.72); margin-top: -2px; }
-    .t9-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .t9-chips span {
-      font-size: .82rem; font-weight: 700; color: #fde3c4;
-      background: rgba(249,115,22,0.12);
-      border: 1px solid rgba(249,115,22,0.30);
-      padding: 5px 11px; border-radius: 9px;
-    }
-    .t9-price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
-    .t9-old { font-size: 1.1rem; color: var(--muted); text-decoration: line-through; }
-    .t9-new { font-size: 2.3rem; font-weight: 900; color: var(--accent); line-height: 1; }
-    .t9-save {
-      font-size: .74rem; font-weight: 800; color: #fff;
-      background: rgba(74,222,128,0.18); border: 1px solid rgba(74,222,128,0.45);
-      color: #86efac; padding: 3px 10px; border-radius: 50px;
-    }
-    .t9-cta {
-      align-self: flex-start; margin-top: 6px;
-      background: linear-gradient(135deg, #f97316, #ea580c);
-      color: #fff; font-weight: 800; font-size: 1rem;
-      padding: 12px 26px; border-radius: 50px;
-      box-shadow: 0 0 24px rgba(249,115,22,0.45);
-    }
-    @media (max-width: 640px) {
-      .t9-offer { flex-direction: column; }
-      .t9-offer-media { flex: 0 0 auto; aspect-ratio: 16/10; }
-      .t9-offer-body { padding: 20px 18px; }
-      .t9-new { font-size: 2rem; }
+    @media (max-width: 480px) {
+      .t9-banner { gap: 10px; padding: 11px 16px; }
+      .t9-banner .t9-b-icon { font-size: 1.5rem; }
+      .t9-banner .t9-b-main { font-size: 1rem; }
+      .t9-banner .t9-b-arrow { display: none; }
     }
 
     .hero h1 {
@@ -1046,28 +1019,14 @@
 <section class="hero">
   <div class="hero-content">
 
-    <!-- ⚡ CHÀO HÀNG: LỚP AI THÁNG 9 -->
-    <a href="#register" class="t9-offer" aria-label="Đăng ký Lớp Đào Tạo AI Tháng 9">
-      <div class="t9-offer-media">
-        <img src="raw/ai-t9.png" alt="Lớp Đào Tạo AI Tháng 9 - Zoom Tập Thể" />
-      </div>
-      <div class="t9-offer-body">
-        <span class="t9-flag">🔥 Chỉ 1 lớp duy nhất trong tháng 9 · Zoom tập thể</span>
-        <div class="t9-title">Lớp Đào Tạo <em>AI Tháng 9</em></div>
-        <p class="t9-desc">4 session thực chiến, gói gọn trong 3 buổi học qua Zoom:</p>
-        <div class="t9-chips">
-          <span>🎬 AI Edit Video</span>
-          <span>🔍 AI Phân tích ngách</span>
-          <span>📝 AI Viết quy trình bán hàng</span>
-          <span>📈 AI Phân tích chỉ số quảng cáo</span>
-        </div>
-        <div class="t9-price">
-          <span class="t9-old">3.690.000đ</span>
-          <span class="t9-new">989.000đ</span>
-          <span class="t9-save">Tiết kiệm 2,7tr</span>
-        </div>
-        <span class="t9-cta">👉 Giữ chỗ ngay với 989K →</span>
-      </div>
+    <!-- ⚡ KHUNG CHÀO HÀNG: HỌC AI SIÊU RẺ -->
+    <a href="ai-thang-9.html" class="t9-banner" aria-label="Học AI siêu rẻ, Lớp AI Tháng 9">
+      <span class="t9-b-icon">🔥</span>
+      <span>
+        <span class="t9-b-main">Học AI siêu rẻ <u>tại đây</u></span>
+        <span class="t9-b-sub">Lớp AI Tháng 9 · Zoom tập thể · chỉ 989K</span>
+      </span>
+      <span class="t9-b-arrow">Xem ngay →</span>
     </a>
 
     <div style="display:flex; align-items:stretch; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
@@ -1481,9 +1440,9 @@
 
     <!-- Trái: lời kêu gọi + đếm ngược -->
     <div class="register-left">
-      <p class="register-eyebrow">⚡ Giữ chỗ lớp AI tháng 9</p>
-      <h2>Chỉ 1 lớp duy nhất tháng 9<br/><em>989K thay vì 3.690.000đ</em></h2>
-      <p>4 session thực chiến trong 3 buổi Zoom tập thể: AI edit video, phân tích ngách, viết quy trình bán hàng, phân tích chỉ số quảng cáo. Để lại thông tin, Thắng sẽ liên hệ giữ chỗ cho bạn trong vòng 2 giờ làm việc.</p>
+      <p class="register-eyebrow">⚡ Đăng ký ngay hôm nay</p>
+      <h2>Đừng để cơ hội này<br/><em>trôi qua thêm một ngày</em></h2>
+      <p>Mỗi ngày không dùng AI là một ngày bạn đang thua đối thủ. Đăng ký nhận tư vấn miễn phí, Thắng sẽ liên hệ trong vòng 2 giờ làm việc.</p>
       <div class="reg-countdown">
         <div class="reg-cd-box"><div class="reg-cd-num" id="rcd-days">05</div><div class="reg-cd-lbl">Ngày</div></div>
         <div class="reg-cd-box"><div class="reg-cd-num" id="rcd-hours">12</div><div class="reg-cd-lbl">Giờ</div></div>
