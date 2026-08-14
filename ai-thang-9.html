@@ -197,6 +197,12 @@
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--text); }
 
+    .pay-qr {
+      display: block; width: 210px; max-width: 72%; margin: 4px auto 8px;
+      background: #fff; border-radius: 12px; padding: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    .pay-qr-cap { text-align: center; font-size: .85rem; color: #fdba74; font-weight: 700; margin-bottom: 16px; }
     .pay-hint { margin-top: 14px; font-size: .86rem; color: #fdba74; line-height: 1.55; background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.25); border-radius: 10px; padding: 10px 12px; }
     .pay-hint b { color: #fff; }
     /* FILE UPLOAD */
@@ -324,6 +330,8 @@
       <p>Lớp chỉ mở 1 lần trong tháng 9, số lượng có hạn. Anh chị làm theo 2 bước bên dưới để giữ chỗ chắc chắn, Thắng sẽ liên hệ xác nhận trong vòng 2 giờ làm việc.</p>
       <div class="pay-box">
         <div class="pay-box-title">Bước 1 · Chuyển khoản 989K để giữ chỗ</div>
+        <img src="raw/qr-vietcombank.jpg" alt="Mã QR Vietcombank ĐOÀN MINH THẮNG 1001000292931" class="pay-qr"/>
+        <p class="pay-qr-cap">📲 Quét mã VietQR để chuyển nhanh</p>
         <div class="pay-row"><span class="pay-lbl">Ngân hàng</span><span class="pay-val">Vietcombank</span></div>
         <div class="pay-row"><span class="pay-lbl">Số tài khoản</span><span class="pay-val acct">1001000292931</span></div>
         <div class="pay-row"><span class="pay-lbl">Chủ tài khoản</span><span class="pay-val">ĐOÀN MINH THẮNG</span></div>
