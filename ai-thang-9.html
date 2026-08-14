@@ -197,6 +197,21 @@
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--text); }
 
+    .pay-hint { margin-top: 14px; font-size: .86rem; color: #fdba74; line-height: 1.55; background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.25); border-radius: 10px; padding: 10px 12px; }
+    .pay-hint b { color: #fff; }
+    /* FILE UPLOAD */
+    .file-drop {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      min-height: 118px; padding: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px dashed rgba(249,115,22,0.5); border-radius: 12px;
+      cursor: pointer; transition: border-color .2s, background .2s;
+    }
+    .file-drop:hover { border-color: var(--accent); background: rgba(249,115,22,0.08); }
+    .file-drop.has-file { border-style: solid; border-color: #4ade80; background: rgba(74,222,128,0.06); }
+    .file-drop-text { font-size: .96rem; color: rgba(255,255,255,0.62); font-weight: 600; }
+    .file-drop .preview { max-width: 100%; max-height: 190px; border-radius: 8px; }
+
     /* FLOATING CONTACT */
     .float-contact { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 14px; z-index: 9999; }
     .float-btn { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
@@ -306,20 +321,21 @@
   <div class="register-wrap">
     <div class="reg-left">
       <h2>Giữ chỗ lớp AI tháng 9<br/><em>chỉ với 989K</em></h2>
-      <p>Lớp chỉ mở 1 lần trong tháng 9, số lượng có hạn để đảm bảo chất lượng hỏi đáp. Để lại thông tin, Thắng sẽ liên hệ xác nhận và hướng dẫn thanh toán trong vòng 2 giờ làm việc.</p>
+      <p>Lớp chỉ mở 1 lần trong tháng 9, số lượng có hạn. Anh chị làm theo 2 bước bên dưới để giữ chỗ chắc chắn, Thắng sẽ liên hệ xác nhận trong vòng 2 giờ làm việc.</p>
       <div class="pay-box">
-        <div class="pay-box-title">Thông tin chuyển khoản giữ chỗ</div>
+        <div class="pay-box-title">Bước 1 · Chuyển khoản 989K để giữ chỗ</div>
         <div class="pay-row"><span class="pay-lbl">Ngân hàng</span><span class="pay-val">Vietcombank</span></div>
         <div class="pay-row"><span class="pay-lbl">Số tài khoản</span><span class="pay-val acct">1001000292931</span></div>
         <div class="pay-row"><span class="pay-lbl">Chủ tài khoản</span><span class="pay-val">ĐOÀN MINH THẮNG</span></div>
         <div class="pay-row"><span class="pay-lbl">Số tiền</span><span class="pay-val amount">989.000đ</span></div>
-        <div class="pay-row"><span class="pay-lbl">Nội dung CK</span><span class="pay-val">Lop AI thang 9 + SĐT</span></div>
+        <div class="pay-row"><span class="pay-lbl">Nội dung CK</span><span class="pay-val">Họ tên + Số điện thoại</span></div>
+        <p class="pay-hint">⚠️ Phần nội dung chuyển khoản chỉ ghi <b>họ tên + số điện thoại</b> của bạn, không ghi thêm nội dung nào khác để tránh nhầm lẫn khi đối soát.</p>
       </div>
     </div>
 
     <div class="reg-card">
-      <h3>📋 Đăng ký giữ chỗ</h3>
-      <p class="reg-sub">Miễn phí để lại thông tin · Tư vấn 1:1 tận tâm</p>
+      <h3>Bước 2 · Gửi thông tin + ảnh chuyển khoản</h3>
+      <p class="reg-sub">Sau khi chuyển khoản xong, chụp màn hình biên lai và tải lên bên dưới để Thắng xác nhận giữ chỗ.</p>
       <form id="regForm" onsubmit="submitRegForm(event)">
         <div class="reg-field">
           <label>Họ và tên *</label>
@@ -333,13 +349,20 @@
           <label>Email *</label>
           <input type="email" id="regEmail" placeholder="email@example.com" required/>
         </div>
-        <button type="submit" class="reg-submit">Đăng ký giữ chỗ 989K →</button>
+        <div class="reg-field">
+          <label>Ảnh chụp màn hình chuyển khoản *</label>
+          <label class="file-drop" id="fileDrop">
+            <input type="file" id="regProof" accept="image/*" required hidden/>
+            <span class="file-drop-text" id="fileDropText">📷 Bấm để chọn ảnh biên lai chuyển khoản</span>
+          </label>
+        </div>
+        <button type="submit" class="reg-submit">Hoàn tất giữ chỗ →</button>
         <p class="reg-note">🔒 Thông tin của bạn được bảo mật tuyệt đối</p>
       </form>
       <div class="reg-success" id="regSuccess">
         <div class="reg-success-icon">🎉</div>
-        <h4>Đăng ký thành công!</h4>
-        <p>Thắng sẽ liên hệ với bạn trong vòng <strong>2 giờ làm việc</strong> để xác nhận chỗ.<br/>Cảm ơn bạn đã tin tưởng TST!</p>
+        <h4>Đã nhận đăng ký!</h4>
+        <p>Thắng sẽ đối soát chuyển khoản và liên hệ xác nhận chỗ trong vòng <strong>2 giờ làm việc</strong>.<br/>Cảm ơn bạn đã tin tưởng TST!</p>
       </div>
     </div>
   </div>
@@ -366,8 +389,50 @@
 </div>
 
 <script>
+  // ⬇️ DÁN LINK WEB APP (Apps Script) VÀO ĐÂY sau khi Deploy
+  var T9_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyoddYM5F5JJ1buY_J_itK3wMb2ohQwdIa2k-Z7O8YjLGi89Z3GaBVden0tzDdsC3g/exec';
+
+  // Đọc ảnh chụp chuyển khoản → thu nhỏ (< 1 triệu điểm ảnh) → base64 + xem trước
+  var proofBase64 = '', proofName = '', proofType = 'image/jpeg';
+  (function() {
+    var input = document.getElementById('regProof');
+    var drop  = document.getElementById('fileDrop');
+    var txt   = document.getElementById('fileDropText');
+    input.addEventListener('change', function() {
+      var f = input.files[0];
+      if (!f) return;
+      proofName = (f.name || 'bien-lai').replace(/\.[^.]+$/, '') + '.jpg';
+      var reader = new FileReader();
+      reader.onload = function() {
+        var img = new Image();
+        img.onload = function() {
+          var w = img.width, h = img.height;
+          var scale = Math.min(1, Math.sqrt(900000 / (w * h)));
+          var nw = Math.max(1, Math.round(w * scale));
+          var nh = Math.max(1, Math.round(h * scale));
+          var canvas = document.createElement('canvas');
+          canvas.width = nw; canvas.height = nh;
+          canvas.getContext('2d').drawImage(img, 0, 0, nw, nh);
+          var dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+          proofBase64 = dataUrl.split(',')[1] || '';
+          drop.classList.add('has-file');
+          txt.innerHTML = '<img src="' + dataUrl + '" class="preview" alt="Ảnh chuyển khoản"/>' +
+            '<div style="margin-top:8px;font-size:.85rem;color:#86efac;font-weight:700;">✓ Đã chọn ảnh biên lai</div>';
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(f);
+    });
+  })();
+
+  function showRegSuccess() {
+    document.getElementById('regForm').style.display = 'none';
+    document.getElementById('regSuccess').style.display = 'block';
+  }
+
   function submitRegForm(e) {
     e.preventDefault();
+    if (!proofBase64) { alert('Bạn vui lòng tải lên ảnh chụp màn hình chuyển khoản nhé.'); return; }
     var btn = document.querySelector('.reg-submit');
     btn.textContent = 'Đang gửi...';
     btn.disabled = true;
@@ -377,18 +442,13 @@
     form.append('phone', document.getElementById('regPhone').value);
     form.append('email', document.getElementById('regEmail').value);
     form.append('course', 'Lop AI thang 9');
+    form.append('image', proofBase64);
+    form.append('imageName', proofName);
+    form.append('imageType', proofType);
 
-    fetch('https://script.google.com/macros/s/AKfycbzvI236IKcfPz23aiIAqXzyf7bqgAiVxIi6ASqqcYE_58AaK920LUjwpOdieb0r7VP8/exec', {
-      method: 'POST', mode: 'no-cors', body: form
-    })
-    .then(function() {
-      document.getElementById('regForm').style.display = 'none';
-      document.getElementById('regSuccess').style.display = 'block';
-    })
-    .catch(function() {
-      document.getElementById('regForm').style.display = 'none';
-      document.getElementById('regSuccess').style.display = 'block';
-    });
+    fetch(T9_ENDPOINT, { method: 'POST', mode: 'no-cors', body: form })
+      .then(showRegSuccess)
+      .catch(showRegSuccess);
   }
 </script>
 
